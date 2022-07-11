@@ -24,7 +24,7 @@ function App() {
       <button onClick={() => setColor('purple')}>Purple</button>
       <input name='size' min='1' max='5'type='range' defaultValue="1" step="0.01" onChange={handleSizeChange} />
       <hr />
-      <h1>hey yoo</h1>
+      <h1>hey yoo!</h1>
       <DesignerToolContainer />
     </div>
   );
