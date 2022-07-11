@@ -1,0 +1,4 @@
+h1 {
+    color: var(--test-header-color);
+    font-size: calc(4rem * var(--test-header-size));
+}
