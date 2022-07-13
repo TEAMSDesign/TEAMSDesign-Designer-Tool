@@ -1,4 +1,5 @@
-:root {
-  --test-header-size: 1;
-  --test-header-color: blue;
+
+.app-container {
+  display: flex;
+  flex-direction: row;
 }

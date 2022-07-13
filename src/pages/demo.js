@@ -2,8 +2,8 @@ import React from "react";
 
 const Demo = () => {
     return (
-        <div>
-            <h1>Designer Tool</h1>
+        <div class="page-container">
+            <h1>Designer tool</h1>
         </div>
     )
 }

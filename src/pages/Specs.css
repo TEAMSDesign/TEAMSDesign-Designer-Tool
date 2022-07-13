@@ -1,0 +1,4 @@
+.code-container {
+    width: calc(100vw - 320px - 50px);
+    background-color: lightgray;
+}

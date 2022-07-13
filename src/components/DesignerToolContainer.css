@@ -2,3 +2,26 @@ h1 {
     color: var(--test-header-color);
     font-size: calc(4rem * var(--test-header-size));
 }
+
+.settings-drawer {
+    width: 320px;
+    height: 100vh;
+    border-left: 1px solid gray;
+    padding: 16px;
+}
+
+.settings-header {
+    height: 64px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+
+.settings-value-row {
+    display: flex;
+}
+
+input[type="range"] {
+    width: 100%;
+}

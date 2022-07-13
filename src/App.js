@@ -1,23 +1,30 @@
 import './App.css';
 import DesignerToolContainer from './components/DesignerToolContainer';
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Demo from "./pages/Demo"
 import Specs from "./pages/Specs"
 import ErrorPage from "./pages/ErrorPage"
 
 import * as React from "react";
 
+import { useEffect, useState } from "react";
+
 function App() {
+  useEffect(() => {
+  }, []);
+
+  const [fontIncrement, setFontIncrement] = useState("1");
+
+  function handleSizeChange (event) {
+    console.log(event.target.value);
+    document.documentElement.style.setProperty('--test-header-size', event.target.value);
+    setFontIncrement(event.target.value);
+  }
   
   return (
-    <div className="App">
+    <div className="App" class="app-container">
       <Router>
-        <DesignerToolContainer />
-        <nav>
-         <Link to="/">demo</Link>
-         <Link to="/specs">specs</Link>
-        </nav>
         <Routes>
           <Route path="/" element={<Demo />}>
           </Route>
@@ -28,37 +35,10 @@ function App() {
           <Route path="*" element={<ErrorPage />}>
           </Route>
         </Routes>
+        <DesignerToolContainer handleSizeChange={handleSizeChange.bind(this)} fontIncrement={fontIncrement} />
       </Router>
     </div>
   );
 }
-
-// function Demo() {
-//   return (
-//     <div>
-//       <main>
-//         <h2>Welcome to the demo page!</h2>
-//         <p>You can do this, I believe in you.</p>
-//       </main>
-//       <nav>
-//         <Link to="/specs">specs</Link>
-//       </nav>
-//     </div>
-//   );
-// }
-
-// function Specs() {
-//   return (
-//     <div>
-//       <main>
-//         <h2>Welcome to the Specs page!</h2>
-//         <p>You can do this, I believe in you.</p>
-//       </main>
-//       <nav>
-//         <Link to="/">demo</Link>
-//       </nav>
-//     </div>
-//   );
-// }
 
 export default App;
