@@ -5,15 +5,38 @@
 }
 
 :root {
-    --test-header-size: 1;
-    --test-header-color: #0000ff;
+    --baseFontSize: 16;
+    --initialFactor: 1.5;
+    --initialLineheight: 24px;
+    
+    /* --baseColor: #3b5aab; */
+    --baseColor: hsl(var(--initialHue), var(--initialSaturation), var(--initialLightness));
+    --initialHue: 223;
+    --initialSaturation: 49;
+    --initialLightness: 45;
+
+    --initialBorderRadius: 0;
+    --initialBorder: 1px;
+
+    --td-body-font-family: "Gotham";
+    --td-blue: #3b5aab;
+    --td-gray-100: #f8f9fa;
+    --td-gray-200: #e9ecef;
+    --td-gray-300: #dee2e6;
+    --td-gray-400: #ced4da;
+    --td-gray-500: #adb5bd;
+    --td-gray-600: #6c757d;
+    --td-gray-700: #495057;
+    --td-gray-800: #343a40;
+    --td-gray-900: #212529;
 }
 
 h1 {
-    color: var(--test-header-color);
-    font-size: calc(4rem * var(--test-header-size));
+    color: var(--baseColor);
+    font-size: calc(var(--baseFontSize) * 1px) !important;
+    margin: calc(2rem * var(--initialFactor));
 }
-  
+ 
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -53,8 +76,7 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 0.5rem;
     font-weight: 500; 
     line-height: 1.2;
-    /* color: var(--td-heading-color); */
-    color: var(--test-header-color);
+    /* color: var(--baseColor); */
 }
 
 /* h1 { font-size: 2.5rem; line-height: 1.2; } 
@@ -147,9 +169,30 @@ kbd kbd {
 /* Fonts
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @font-face {
-    font-family: '';
-    src: url('');
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Bold.otf');
     font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Black.otf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Book.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Light.otf');
+    font-weight: 300;
     font-style: normal;
 }
   
@@ -390,7 +433,7 @@ pre {
     margin-top: 0;
     margin-bottom: 1rem;
     overflow: auto;
-    font-size: 0.875em;
+    font-size: inherit;
 }
 pre code {
     font-size: inherit;
@@ -399,7 +442,7 @@ pre code {
 }
   
 code {
-    font-size: 0.875em;
+    font-size: inherit;
     color: var(--td-code-color);
     word-wrap: break-word;
 }
@@ -475,7 +518,9 @@ tr:nth-child(even) {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
 .button {
-    margin-bottom: 1rem; }
+    /* margin-bottom: 1rem;  */
+}
+
 input,
 textarea,
 select,

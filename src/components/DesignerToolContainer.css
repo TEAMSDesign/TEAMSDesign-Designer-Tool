@@ -6,8 +6,9 @@ h1 {
 .settings-drawer {
     width: 320px;
     height: 100vh;
-    border-left: 1px solid gray;
-    padding: 16px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    padding: 36px 24px;
+    overflow-y: scroll;
 }
 
 .settings-header {
@@ -15,13 +16,289 @@ h1 {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid gray;
+    justify-content: left;
+}
+
+.settings-nav-section {
+    height: 46px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-section {
+    margin-top: 32px;
+}
+
+.darkmode-section {
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.settings-nav-toggle-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 164px;
+    height: 46px;
+    background-color: var(--td-gray-200);
+    border-radius: 10px;
+}
+
+.nav-toggle:first-child {
+    margin-right: 4px;
+}
+
+.nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 76px;
+    color: var(--td-gray-600);
+    background-color: transparent;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.nav-toggle:hover {
+    color: var(--td-gray-600);
+    /* background-color: var(var(--td-gray-400)); */
+}
+
+.settings-color-toggle-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 32px;
+    background-color: var(--td-gray-200);
+    border-radius: 10px;
+}
+
+.settings-color-button {
+    height: 24px;
+    width: 44px;
+    background-color: transparent;
+    color: var(--td-gray-600);
+    border-radius: 8px;
+    font-weight: 400;
+}
+
+.settings-color-button:first-child {
+    margin-right: 4px;
+}
+
+.settings-color-button:hover {
+    color: var(--td-gray-600);
+}
+
+.settings-title {
+    font-size: 26px;
+    font-weight: 400;
+    margin-top: 24px;
+    color: var(--td-gray-800);
+}
+
+.settings-subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--td-gray-800);
+}
+
+.settings-subtitle-color {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.settings-subtitle-color .settings-subtitle {
+    margin-bottom: 0;
+}
+
+/* .settings-color-button:active {
+    background-color: aquamarine;
+} */
+
+
+/* .settings-color-button:active {
+    background-color: aquamarine;
+} */
+
+/* .isActive {
+    background-color: purple;
+} */
+
+.settings-label {
+    font-size: 16px;
+    margin-top: 16px;
+    color: var(--td-gray-800);
 }
 
 .settings-value-row {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.settings-value {
+    font-size: 14px;
+    font-weight: 300;
 }
 
 input[type="range"] {
     width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
+
+input[type="text"] {
+    height: 40px !important;
+    width: 100%;
+    font-size: 14px;
+    padding: 16px !important;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+/* Toggle Switch Button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+    margin-left: 8px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--td-blue);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--td-blue);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Slider Input Range */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    height: 1.5rem;
+    cursor: pointer;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  input[type=range]:focus {
+    outline: none;
+  }
+  
+  input[type=range]:hover::-webkit-slider-thumb,
+  input[type=range]:focus::-webkit-slider-thumb {
+    transform: scale(1.6);
+  }
+  input[type=range]:hover::-moz-range-thumb,
+  input[type=range]:focus::-moz-range-thumb {
+    transform: scale(1.6);
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -3px;
+    height: 0.5rem;
+    width: 0.5rem;
+    background: var(--td-blue);
+    border-radius: 100%;
+    transition: 0.2s;
+  }
+  
+  input[type=range]::-moz-range-thumb {
+    margin-top: -3px;
+    height: 0.5rem;
+    width: 0.5rem;
+    background: var(--td-blue);
+    border-radius: 100%;
+    transition: 0.2s;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    border: none;
+  }
+
+  input[name=baseFontSize]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc(var(--baseFontSize) * 2.5px), lightblue calc(var(--baseFontSize) * 2.5px));;
+  }
+
+  input[name=factor]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc(var(--initialFactor) * 5.5px), lightblue calc(var(--initialFactor) * 5.5px));;
+  }
+
+  input[name=lineheight]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc(var(--initialLineheight) * 5px), lightblue calc(var(--initialLineheight) * 5px));;
+  }
+  
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: lightblue;
+    border: none;
+  }

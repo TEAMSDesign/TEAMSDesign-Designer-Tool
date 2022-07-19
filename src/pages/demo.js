@@ -2,7 +2,7 @@ import React from "react";
 
 const Demo = () => {
     return (
-        <div class="page-container">
+        <div className="page-container">
             <h1>Designer tool</h1>
         </div>
     )
