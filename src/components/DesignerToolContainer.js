@@ -15,7 +15,7 @@ export default function DesignerToolContainer(props) {
       }
 
     //   const testStyle = (event) => ({
-    //       background : "linearGradient(90deg, blue 0%, blue " + props.fontIncrement + ", hsla(0,0%,100%,0.2) "+ props.fontIncrement +")",
+    //       background : "linearGradient(90deg, blue 0%, blue " + props.initialFontSize + ", hsla(0,0%,100%,0.2) "+ props.initialFontSize +")",
     //   })
 
     // const colorSettingsStyle = () => {
@@ -24,12 +24,12 @@ export default function DesignerToolContainer(props) {
 
       const [showHex, setShowHex] = useState(true);
 
-      const [activeButton, setActiveButton] = useState(true);
+    //   const [activeButton, setActiveButton] = useState(true);
 
       const handleShowHex = event => {
         setShowHex(true);
         setShowHsl(false);
-        setActiveButton(activeButton => !activeButton);
+        // setActiveButton(activeButton => !activeButton);
         
       }
 
@@ -38,8 +38,11 @@ export default function DesignerToolContainer(props) {
       const handleShowHsl = event => {
           setShowHsl(true);
           setShowHex(false);
-          setActiveButton(activeButton => !activeButton);
+        //   setActiveButton(activeButton => !activeButton);
       }
+
+      var initialFontSizeString = props.initialFontSize;
+      var newInitialFontSize = initialFontSizeString.replace("px", "");
 
     return (
         <div className="settings-drawer">
@@ -61,7 +64,7 @@ export default function DesignerToolContainer(props) {
             <div className="settings-section darkmode-section">
                 <label className="settings-label" style={{marginTop: 0}}>Dark Mode</label>
                 <label className="switch">
-                    <input type='checkbox'></input>
+                    <input id="darkModeInput" type='checkbox' name='darkMode' onChange={props.handleDarkMode}></input>
                     <span className="slider round"></span>
                 </label>
             </div>
@@ -70,28 +73,40 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Typography</h5>
                 <div>
                     <label className="settings-label">Base Font Size</label>
-                    <input name='baseFontSize' min='1' max='100'type='range' defaultValue="16" step="0.01" onChange={props.handleSizeChange} />
+                    <input name='baseFontSize' min='8' max='80'type='range' defaultValue="16" step="0.01" onChange={props.handleSizeChange} />
                     <div className="settings-value-row">
-                        <p className="settings-value">{props.fontIncrement}</p>
+                        <p className="settings-value">{newInitialFontSize}</p>
                         <p className="settings-value">px</p>
                     </div>
                 </div>
 
                 <div>
-                    <label className="settings-label">Factor</label>
-                    <input name='factor' min='1' max='3'type='range' defaultValue="1" step="0.01" onChange={props.handleFactor} />
+                    <label className="settings-label">Font Proportion</label>
+                    <input name='factor' min='1' max='2'type='range' defaultValue="1.3" step="0.01" onChange={props.handleFactor} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.factor}</p>
-                        <p className="settings-value">radio</p>
+                        <p className="settings-value">ratio</p>
                     </div>
                 </div>
+            </div>
 
+            <div className="settings-section">
+                <h5 className="settings-subtitle">Spacing</h5>
                 <div>
                     <label className="settings-label">Linehieght</label>
-                    <input name='lineheight' min='1' max='50'type='range' defaultValue="1" step="0.01" onChange={props.handleLineheight} />
+                    <input name='lineheight' min='1' max='40' type='range' defaultValue="24" step="0.1" onChange={props.handleLineheight} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.lineheight}</p>
                         <p className="settings-value">px</p>
+                    </div>
+                </div>
+
+                <div>
+                    <label className="settings-label">Space Proportion</label>
+                    <input name='lineheight' min='1' max='2' type='range' defaultValue="1.5" step="0.01" onChange={props.handleLineheightIncrement} />
+                    <div className="settings-value-row">
+                        <p className="settings-value">{props.lineheightIncrement}</p>
+                        <p className="settings-value">ratio</p>
                     </div>
                 </div>
             </div>
@@ -101,7 +116,7 @@ export default function DesignerToolContainer(props) {
                     <h5 className="settings-subtitle">Color</h5>
                     <div className="settings-color-toggle-wrapper">
                         <button id="hexButton" className={"settings-color-button"} style={ showHex ? activeStyle : undefined} onClick={handleShowHex}>HEX</button>
-                        <button id="hlsButton" className={"settings-color-button"} style={ showHsl ? activeStyle : undefined} onClick={handleShowHsl}>HLS</button>
+                        <button id="hlsButton" className={"settings-color-button"} style={ showHsl ? activeStyle : undefined} onClick={handleShowHsl}>HSL</button>
                     </div>
                 </div>
                 {showHex && (
@@ -149,16 +164,16 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Layout</h5>
                 <div>
                     <label className="settings-label">Border Radius</label>
-                    <input name='borderRadius' min='0' max='100'type='range' defaultValue="1" step="0.01" onChange={props.handleBorderRadius} />
+                    <input name='borderRadius' min='0' max='100'type='range' defaultValue="8" step="0.01" onChange={props.handleBorderRadius} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.borderRadius}</p>
-                        <p className="settings-value">%</p>
+                        <p className="settings-value">px</p>
                     </div>
                 </div>
 
                 <div>
                     <label className="settings-label">Border</label>
-                    <input name='border' min='0' max='5'type='range' defaultValue="1" step="0.01" onChange={props.handleBorder} />
+                    <input name='border' min='0' max='3'type='range' defaultValue="1" step="0.1" onChange={props.handleBorder} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.border}</p>
                         <p className="settings-value">px</p>

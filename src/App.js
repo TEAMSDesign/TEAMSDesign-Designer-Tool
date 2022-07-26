@@ -14,25 +14,41 @@ function App() {
   useEffect(() => {
   }, []);
 
-  const [fontIncrement, setFontIncrement] = useState("16");
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleDarkMode = (event) => {
+    setDarkMode(event.target.checked);
+    console.log(darkMode);
+    // if(event.target.checked) { alert(event.target.value); }
+    event.target.checked ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
+  }
+
+  const [initialFontSize, setinitialFontSize] = useState("16");
 
   function handleSizeChange (event) {
-    document.documentElement.style.setProperty('--baseFontSize', event.target.value);
-    setFontIncrement(event.target.value);
+    document.documentElement.style.setProperty('--initialFontSize', event.target.value + 'px');
+    setinitialFontSize(event.target.value);
   }
 
   const [factor, setFactor] = useState('1.5');
 
   function handleFactor (event) {
-    document.documentElement.style.setProperty('--initialFactor', event.target.value);
+    document.documentElement.style.setProperty('--initialRatio', event.target.value);
     setFactor(event.target.value);
   }
 
   const [lineheight, setLineheight] = useState('24');
 
   const handleLineheight = (event) => {
-    document.documentElement.style.setProperty('--initialLineheight', event.target.value);
+    document.documentElement.style.setProperty('--initialLineheight', event.target.value + 'px');
     setLineheight(event.target.value);
+  }
+
+  const [lineheightIncrement, setLineheightIncrement] = useState('1.5');
+
+  const handleLineheightIncrement = (event) => {
+    document.documentElement.style.setProperty('--lineheightIncrement', event.target.value);
+    setLineheightIncrement(event.target.value);
   }
 
   const [baseColor, setBaseColor] = useState('#3b5cad');
@@ -45,35 +61,35 @@ function App() {
   const [hue, setHue] = useState('223');
 
   function handleHue (event) {
-    document.documentElement.style.setProperty('--initialHue', event.target.value);
+    document.documentElement.style.setProperty('--initiallightHue', event.target.value);
     setHue(event.target.value);
   }
 
   const [saturation, setSaturation] = useState('49');
 
   const handleSaturation = (event) => {
-    document.documentElement.style.setProperty('--initialSaturation', event.target.value);
+    document.documentElement.style.setProperty('--initiallightSaturation', event.target.value + '%');
     setSaturation(event.target.value);
   }
 
   const [lightness, setLightness] = useState('45');
 
   function handleLightness (event) {
-    document.documentElement.style.setProperty('--initialLightness', event.target.value);
+    document.documentElement.style.setProperty('--initiallightLightness', event.target.value + '%');
     setLightness(event.target.value);
   }
 
   const [borderRadius, setBorderRadius] = useState('0')
 
   function handleBorderRadius (event) {
-    document.documentElement.style.setProperty('--initialBorderRadius', event.target.value);
+    document.documentElement.style.setProperty('--initialBorderRadius', event.target.value + 'px');
     setBorderRadius(event.target.value);
   }
 
   const [border, setBorder] = useState('1');
 
   function handleBorder (event) {
-    document.documentElement.style.setProperty('--initialBorder', event.target.value);
+    document.documentElement.style.setProperty('--initialBorder', event.target.value + 'px');
     setBorder(event.target.value);
   }
 
@@ -86,9 +102,10 @@ function App() {
           
           <Route path="/specs" element={
             <Specs
-              fontIncrement={fontIncrement + 'px'}
+              initialFontSize={initialFontSize + 'px'}
               factor={factor}
               lineheight={lineheight + 'px'}
+              lineheightIncrement={lineheightIncrement}
               baseColor={baseColor}
               hue={hue}
               saturation={saturation + '%'}
@@ -101,10 +118,12 @@ function App() {
           <Route path="*" element={<ErrorPage />}>
           </Route>
         </Routes>
-        <DesignerToolContainer 
-          handleSizeChange={handleSizeChange.bind(this)} fontIncrement={fontIncrement}
+        <DesignerToolContainer
+          handleDarkMode={handleDarkMode.bind(this)}
+          handleSizeChange={handleSizeChange.bind(this)} initialFontSize={initialFontSize + 'px'}
           handleFactor={handleFactor} factor={factor}
-          handleLineheight={handleLineheight} lineheight={lineheight} 
+          handleLineheight={handleLineheight} lineheight={lineheight}
+          handleLineheightIncrement={handleLineheightIncrement} lineheightIncrement={lineheightIncrement}
           handleColorChange={handleColorChange.bind(this)} baseColor={baseColor}
           handleHue={handleHue} hue={hue}
           handleSaturation={handleSaturation} saturation={saturation}
