@@ -76,6 +76,7 @@
     --lightscaleHueIncrement: 4;
     --lightscaleSaturationIncrement: 0%;
     --lightscaleLightnessIncrement: 7%;
+    --light-0H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) / 1);
     --light1H: var(--initiallightHue);
     --light2H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 1);
     --light3H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 2);
@@ -85,6 +86,7 @@
     --light7H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 6);
     --light8H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 7);
     --light9H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 8);
+    --light0S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) / 1);
     --light1S: var(--initiallightSaturation);
     --light2S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 1);
     --light3S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 2);
@@ -94,6 +96,7 @@
     --light7S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 6);
     --light8S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 7);
     --light9S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 8);
+    --light0L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) / 1);
     --light1L: var(--initiallightLightness);
     --light2L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 1);
     --light3L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 2);
@@ -103,6 +106,7 @@
     --light7L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 6);
     --light8L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 7);
     --light9L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 8);
+    --light-00: hsl(var(--light0H), var(--light0S), var(--light0L));
     --light-01: hsl(var(--light1H), var(--light1S), var(--light1L));
     --light-02: hsl(var(--light2H), var(--light2S), var(--light2L));
     --light-03: hsl(var(--light3H), var(--light3S), var(--light3L));
@@ -128,6 +132,7 @@
     --grey-09: hsl(var(--initiallightHue), 11%, 15%);
 
     --td-blue: hsl(223, 49%, 45%);
+    --td-light-blue: hsl(223, 49%, 80%);
     --td-light1H: 223;
     --td-light1S: 49%;
     --td-light1L: 45%;
@@ -150,12 +155,50 @@
     --initialBorder: 1px;
 
     /* Applied Variables */
-    --color-white: rgb(255, 255, 255);
-    --color-black: rgb(0, 0, 0);
+    --color-white: #fff;
+    --color-black: #000;
+
+    --highlight-bg: #fff3cd;
+    --border-style: solid;
+
+    /* Input Range Slider Values */
+    --factorPixelValue: 1.3px;
+    --lineheightPixelValue: 24px;
+    --lineheightIncrementPixelValue: 1.5px;
+    --huePixelValue: 223px;
+    --saturationPixelValue: 49px;
+    --lightnessPixelValue: 45px;
+
+    /* box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%); */
+    --box-shadow-color-light: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    --box-shadow-color-dark: 0 1px 2px 0 rgba(196, 210, 222, 0.3), 0 2px 6px 2px rgba(196, 211, 221, 0.15);
+
+    /* Default light Mode */
+    --font-color-primary: var(--light-09);
+    --font-color-secondary: var(--light-08);
+    --font-color-primary-footer: var(--grey-09);
+    --font-color-secondary-footer: var(--grey-06);
+    --font-color-button: var(--light-01);
+    --bg-color-body: var(--grey-01);
+    --bg-color-header: var(--grey-01);
+    --bg-color-footer: var(--light-09);
+    --bg-color-modal: var(--td-lightgrey-transparent);
+    --bg-color-card: var(--grey-01);
+    --bg-color-button: var(--color-white);
+    --blend-mode: multiply;
+    --display-light: inherit;
+    --display-dark: none;
+
+    --bg-color-code: var(--grey-02);
+    --border-color-primary: var(--grey-09);
+    --border-color-secondary: var(--grey-02);
+    --box-shadow-color: var(--box-shadow-color-light);
+    --link-color: var(--light-01);
+    --link-hover-color: var(--light-01);
 }
 
 /*______  Dark & Light Mode  ______*/
-[data-theme="light"] {
+/* [data-theme="light"] {
     --font-color-primary: var(--light-09);
     --font-color-secondary: var(--light-08);
     --font-color-primary-footer: var(--grey-09);
@@ -169,22 +212,32 @@
     --blend-mode: multiply;
     --display-light: inherit;
     --display-dark: none;
-}
+
+    --bg-color-code: var(--grey-02);
+} */
 
 [data-theme="dark"] {
     --font-color-primary: var(--grey-01);
     --font-color-secondary: var(--grey-05);
     --font-color-primary-footer: var(--grey-01);
     --font-color-secondary-footer: var(--grey-05);
-    --bg-color-body: var(--color-black);
+    --font-color-button: lightblue;
+    --bg-color-body: var(--grey-09);
     --bg-color-header: var(--color-black);
     --bg-color-footer: var(--light-09);
     --bg-color-modal: var(--td-black-transparent);
-    --bg-color-card: var(--light-09);
+    --bg-color-card: var(--grey-09);
     --bg-color-button: var(--light-09);
     --blend-mode: screen;
     --display-light: none;
     --display-dark: inherit;
+
+    --bg-color-code: var(--grey-08);
+    --border-color-primary: var(--grey-01);
+    --border-color-secondary: var(--grey-08);
+    --box-shadow-color: var(--box-shadow-color-dark);
+    --link-color: var(--light-01);
+    --link-hover-color: var(--light-01);
 }
 
 
@@ -242,7 +295,7 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 0.5rem;
     font-weight: 500; 
     line-height: var(--initialLineheight);
-    color: var(--light-09);
+    color: var(--font-color-primary);
 }
 
 h1 { 
@@ -339,14 +392,14 @@ strong {
 
 mark {
     padding: 0.1875em;
-    background-color: var(--td-highlight-bg);
+    background-color: var(--highlight-bg);
 }
 
 kbd {
     padding: 0.1875rem 0.375rem;
     font-size: 0.875em;
     color: var(--td-body-bg);
-    background-color: var(--light-09);
+    background-color: var(--bg-color-card);
     border-radius: 0.25rem;
 }
 
@@ -390,12 +443,12 @@ kbd kbd {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-    color: var(--td-link-color);
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--td-link-hover-color);
+    color: var(--link-hover-color);
 }
   
   
@@ -417,11 +470,11 @@ input[type="button"] {
     border-radius: 0;
     cursor: pointer;
     box-sizing: border-box;
-    border-width: var(--td-border-width);
-    border-style: var(--td-border-style);
-    background-color: var(--td-body-bg);
+    border-width: var(--initialBorder);
+    border-style: var(--border-style);
+    background-color: var(--bg-color-body);
     border-color: var(--baseColor);
-    border-radius: var(--td-border-radius-sm);
+    border-radius: var(--initialBorderRadius);
 }
  
 button:hover,
@@ -432,7 +485,7 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-    color: var(--td-white);
+    color: var(--bg-color-body);
     border-color: var(--td-grey);
     background-color: var(--td-grey);
     outline: 0; 
@@ -492,8 +545,8 @@ textarea,
 select {
     height: 38px;
     padding: var(--td-inner-padding);
-    background-color: #fff;
-    border: 1px solid #D1D1D1;
+    background-color: var(--bg-color-body);
+    border: 1px solid var(--bg-color-code);
     border-radius: 4px;
     box-shadow: none;
     box-sizing: border-box; 
@@ -772,32 +825,20 @@ hr {
 Note: ...
 */
   
+
 /*** Mobile First ***/
 /* Larger than mobile */
-@media (min-width: var(--media-size-s)) {}
+@media (min-width: 576px) {}
   
 /* Larger than tablet */
-@media (min-width: var(--media-size-m)) {}
+@media (min-width: 768px) {}
   
 /* Larger than desktop */
-@media (min-width: var(--media-size-l)) {}
+@media (min-width: 992px) {
+    .page-container {
+        width: 100vw;
+    }
+}
   
 /* Larger than Desktop HD */
-@media (min-width: var(--media-size-xl)) {}
-  
-
-/*** Desktop First ***/
-/* Smaller than Desktop HD */
-@media (max-width: 1200px) {
-    /* h1 { font-size: 4.5rem; line-height: 1.2; } */
-}
-  
-/* Smaller than desktop */
-@media (max-width: 992px) {
-}
-  
-/* Smaller than tablet */
-@media (max-width: 768px) {}
-
-/* Mobile */
-@media (max-width: 576px) {}
+@media (min-width: 1200px) {}

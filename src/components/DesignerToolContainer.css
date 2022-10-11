@@ -1,20 +1,18 @@
 body {
-    color: var(--td-grey-09);
-}
-
-.settings-drawer {
-    line-height: 24px;
+    color: var(--font-color-primary);
 }
 
 .settings-drawer {
     width: 320px;
     height: 100vh;
-    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-    padding: 36px 24px;
+    box-shadow: var(--box-shadow-color);
+    padding: 0 24px 36px 24px;
     overflow-y: scroll;
     position: fixed;
     top: 0;
     right: 0;
+    line-height: 24px;
+    background-color: var(--bg-color-body);
 }
 
 .settings-header {
@@ -22,7 +20,31 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
+}
+
+.settings-title {
+    /* font-size: 26px; */
+    font-size: 24px;
+    font-weight: 400;
+    /* margin-top: 24px; */
+    margin: 0;
+    color: var(--font-color-secondary);
+}
+
+.settings-close-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: var(--font-color-primary);
+}
+
+.settings-close-button:hover{
+    background-color: var(--bg-color-code);
+    color: var(--font-color-primary);
 }
 
 .settings-nav-section {
@@ -51,7 +73,7 @@ body {
     align-items: center;
     width: 160px;
     height: 42px;
-    background-color: var(--td-grey-02);
+    background-color: var(--bg-color-code);
     border-radius: 10px;
 }
 
@@ -84,7 +106,7 @@ body {
     align-items: center;
     width: 96px;
     height: 28px;
-    background-color: var(--td-grey-02);
+    background-color: var(--bg-color-code);
     border-radius: 10px;
 }
 
@@ -95,6 +117,7 @@ body {
     color: var(--td-grey-06);
     border-radius: 8px;
     font-weight: 400;
+    border: none;
 }
 
 .settings-color-button:first-child {
@@ -105,17 +128,10 @@ body {
     color: var(--td-grey-06);
 }
 
-.settings-title {
-    font-size: 26px;
-    font-weight: 400;
-    margin-top: 24px;
-    color: var(--td-grey-08);
-}
-
 .settings-subtitle {
     font-size: 18px;
     font-weight: 700;
-    color: var(--td-grey-08);
+    color: var(--font-color-secondary);
 }
 
 .settings-subtitle-color {
@@ -146,7 +162,7 @@ body {
 .settings-label {
     font-size: 16px;
     margin-top: 16px;
-    color: var(--td-grey-08);
+    color: var(--font-color-secondary);
 }
 
 .settings-value-row {
@@ -210,7 +226,7 @@ input[type="text"] {
     width: 20px;
     left: 2px;
     bottom: 2px;
-    background-color: white;
+    background-color: var(--bg-color-card);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -289,25 +305,65 @@ input[type=range] {
     border: none;
   }
 
-  /* input[name=baseFontSize]::-webkit-slider-runnable-track {
-    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--initialFontSize) * 257) / 72), lightblue calc((var(--initialFontSize) * 257) / 72));;
-  } */
   input[name=baseFontSize]::-webkit-slider-runnable-track {
-    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--initialFontSize) * 257) / 85), lightblue calc((var(--initialFontSize) * 257) / 85));;
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--initialFontSize) * 257) / 72 - 25px), var(--td-light-blue) calc((var(--initialFontSize) * 257) / 72 - 25px));
   }
 
   input[name=factor]::-webkit-slider-runnable-track {
-    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc(var(--initialFactor) * 5.5px), lightblue calc(var(--initialFactor) * 5.5px));;
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--factorPixelValue) * 257 ) / 1.02 - 245px), var(--td-light-blue) calc((var(--factorPixelValue) * 257) / 1.02 - 245px));
   }
 
   input[name=lineheight]::-webkit-slider-runnable-track {
-    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc(var(--initialLineheight) * 5px), lightblue calc(var(--initialLineheight) * 5px));;
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--lineheightPixelValue) * 257 ) / 39 - 5px), var(--td-light-blue) calc((var(--lineheightPixelValue) * 257) / 39 - 5px));
+  }
+
+  input[name=lineheightIncrement]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--lineheightIncrementPixelValue) * 257 ) / 1.02 - 245px), var(--td-light-blue) calc((var(--lineheightIncrementPixelValue) * 257) / 1.02 - 245px));
+  }
+
+  input[name=hue]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--huePixelValue) * 257 ) / 360), var(--td-light-blue) calc((var(--huePixelValue) * 257) / 360));
+  }
+
+  input[name=saturation]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--saturationPixelValue) * 257 ) / 100), var(--td-light-blue) calc((var(--saturationPixelValue) * 257) / 100));
+  }
+
+  input[name=lightness]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--lightnessPixelValue) * 257 ) / 100), var(--td-light-blue) calc((var(--lightnessPixelValue) * 257) / 100));
+  }
+
+  input[name=borderRadius]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--initialBorderRadius) * 257 ) / 100), var(--td-light-blue) calc((var(--initialBorderRadius) * 257) / 100));
+  }
+
+  input[name=border]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, var(--td-blue) 0%, var(--td-blue) calc((var(--initialBorder) * 257 ) / 3.2 + 8px), var(--td-light-blue) calc((var(--initialBorder) * 257) / 3.2 + 8px));
   }
   
   input[type=range]::-moz-range-track {
     width: 100%;
     height: 2px;
     cursor: pointer;
-    background: lightblue;
+    background: var(--td-light-blue);
     border: none;
   }
+
+
+/*** Mobile First ***/
+/* Larger than mobile */
+@media (min-width: 576px) {}
+  
+/* Larger than tablet */
+@media (min-width: 768px) {
+}
+  
+/* Larger than desktop */
+@media (min-width: 992px) {
+    .settings-close-button {
+        display: none;
+    }
+}
+  
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

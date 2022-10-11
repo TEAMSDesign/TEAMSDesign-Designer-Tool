@@ -1,35 +1,26 @@
 import React from "react";
 import './DesignerToolContainer.css'
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function DesignerToolContainer(props) {
     useEffect(() => {
-        // const size = getComputedStyle(document.documentElement).getPropertyValue('--test-header-size');
-        // console.log(size);
       }, []);
+
+      const handleClose = () => {
+          document.getElementById('settingsDrawer').style.display = 'none';
+      }
 
       let activeStyle = {
         color: "#3b5aab",
-        backgroundColor: "white",
+        backgroundColor: "var(--bg-color-card)",
       }
 
-    //   const testStyle = (event) => ({
-    //       background : "linearGradient(90deg, blue 0%, blue " + props.initialFontSize + ", hsla(0,0%,100%,0.2) "+ props.initialFontSize +")",
-    //   })
-
-    // const colorSettingsStyle = () => {
-    //     --td-baseColor: #3b5aab;
-    // }
-
       const [showHex, setShowHex] = useState(true);
-
-    //   const [activeButton, setActiveButton] = useState(true);
 
       const handleShowHex = event => {
         setShowHex(true);
         setShowHsl(false);
-        // setActiveButton(activeButton => !activeButton);
         
       }
 
@@ -38,17 +29,20 @@ export default function DesignerToolContainer(props) {
       const handleShowHsl = event => {
           setShowHsl(true);
           setShowHex(false);
-        //   setActiveButton(activeButton => !activeButton);
       }
 
       var initialFontSizeString = props.initialFontSize;
       var newInitialFontSize = initialFontSizeString.replace("px", "");
 
     return (
-        <div className="settings-drawer">
-            {/* <div className="settings-header">
-                <h4>TEAMS Designer</h4>
-            </div> */}
+        <div id="settingsDrawer" className="settings-drawer">
+            <div className="settings-header">
+                {/* <h5>TEAMS Designer</h5> */}
+                <h4 className="settings-title">Customization</h4>
+                <button className="settings-close-button" onClick={handleClose}>
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
             <nav className="settings-nav-section">
                 <div className="settings-nav-toggle-wrapper">
                     <NavLink to="/" className="nav-toggle" style={({ isActive }) =>
@@ -59,7 +53,7 @@ export default function DesignerToolContainer(props) {
                     Specs</NavLink>
                 </div>
             </nav>
-            <h4 className="settings-title">Customization</h4>
+            {/* <h4 className="settings-title">Customization</h4> */}
 
             <div className="settings-section darkmode-section">
                 <label className="settings-label" style={{marginTop: 0}}>Dark Mode</label>
@@ -103,7 +97,7 @@ export default function DesignerToolContainer(props) {
 
                 <div>
                     <label className="settings-label">Space Proportion</label>
-                    <input name='lineheight' min='1' max='2' type='range' defaultValue="1.5" step="0.01" onChange={props.handleLineheightIncrement} />
+                    <input name='lineheightIncrement' min='1' max='2' type='range' defaultValue="1.5" step="0.01" onChange={props.handleLineheightIncrement} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.lineheightIncrement}</p>
                         <p className="settings-value">ratio</p>

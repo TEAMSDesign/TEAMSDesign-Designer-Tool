@@ -18,8 +18,6 @@ function App() {
 
   const handleDarkMode = (event) => {
     setDarkMode(event.target.checked);
-    console.log(darkMode);
-    // if(event.target.checked) { alert(event.target.value); }
     event.target.checked ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
   }
 
@@ -34,6 +32,7 @@ function App() {
 
   function handleFactor (event) {
     document.documentElement.style.setProperty('--initialRatio', event.target.value);
+    document.documentElement.style.setProperty('--factorPixelValue', event.target.value + 'px')
     setFactor(event.target.value);
   }
 
@@ -41,6 +40,7 @@ function App() {
 
   const handleLineheight = (event) => {
     document.documentElement.style.setProperty('--initialLineheight', event.target.value + 'px');
+    document.documentElement.style.setProperty('--lineheightPixelValue', event.target.value + 'px');
     setLineheight(event.target.value);
   }
 
@@ -48,6 +48,7 @@ function App() {
 
   const handleLineheightIncrement = (event) => {
     document.documentElement.style.setProperty('--lineheightIncrement', event.target.value);
+    document.documentElement.style.setProperty('--lineheightIncrementPixelValue', event.target.value + 'px');
     setLineheightIncrement(event.target.value);
   }
 
@@ -62,6 +63,7 @@ function App() {
 
   function handleHue (event) {
     document.documentElement.style.setProperty('--initiallightHue', event.target.value);
+    document.documentElement.style.setProperty('--huePixelValue', event.target.value + 'px');
     setHue(event.target.value);
   }
 
@@ -69,6 +71,7 @@ function App() {
 
   const handleSaturation = (event) => {
     document.documentElement.style.setProperty('--initiallightSaturation', event.target.value + '%');
+    document.documentElement.style.setProperty('--saturationPixelValue', event.target.value + 'px');
     setSaturation(event.target.value);
   }
 
@@ -76,6 +79,7 @@ function App() {
 
   function handleLightness (event) {
     document.documentElement.style.setProperty('--initiallightLightness', event.target.value + '%');
+    document.documentElement.style.setProperty('--lightnessPixelValue', event.target.value + 'px');
     setLightness(event.target.value);
   }
 

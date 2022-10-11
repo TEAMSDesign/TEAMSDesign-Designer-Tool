@@ -1,4 +1,7 @@
+import JSZip from "jszip";
 import React from "react";
+import { saveAs } from 'file-saver';
+import JSZipUtils from "jszip-utils";
 import './Specs.css'
 // import { useState } from "react";
 
@@ -7,10 +10,56 @@ export default function Specs (props) {
     // const docStyle = getComputedStyle(document.documentElement);
     // const headerSize = docStyle.getPropertyValue('--test-header-size');
 
+    // Download Zip File
+    const zip = new JSZip();
+    var zipFilename = "myexample.zip"
+    var paths = [
+        '../index.css',
+        '../StarterKit/index.html'
+    ];
+
+    var stylesData = '../index.css';
+    var fileImage = 'https://digitalisation-images.s3.eu-central-1.amazonaws.com/landscape-today1.svg';
+    var remoteFile = '../StarterKit/index.html';
+
+    // fileUrls.forEach((url) => {
+    //     var filename = "filename";
+
+    // })
+
+    zip.file("Hello.txt", "Hello World");
+    const cssFolder = zip.folder("css");
+    // cssFolder.file("styles.css", stylesData, {base64: true});
+
+    var promiseRemoteFile = new JSZip.external.Promise(function (resolve, reject) {
+        JSZipUtils.getBinaryContent(stylesData, function (err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+    cssFolder.file("styles.css", promiseRemoteFile);
+
+    // JSZipUtils.getBinaryContent('Specs.css', function (err, data) {
+    //         if (err) {
+    //             throw err;
+    //         } 
+    //         var zip = new JSZip();
+    //         zip.file('../index.css', data);
+    // });
+    
+    function generateZipFile() {
+        zip.generateAsync({type:"blob"}).then(function(content) {
+            saveAs(content, zipFilename);
+        });
+    }
+
     return (
         <div className="page-container">
             <div className="section__container">
-                <h4>Typography</h4>
+                <h4 className="section-title">Typography</h4>
                 <div className="snippet-section__container">
                     <div className="section-child-container demo-template__container">
                         <div className="demo-font-group__wrapper">
@@ -62,7 +111,7 @@ export default function Specs (props) {
             </div>
 
             <div className="section__container">
-                <h4>Spacing</h4>
+                <h4 className="section-title">Spacing</h4>
                 <div className="snippet-section__container">
                     <div className="section-child-container demo-template__container">
                         <div className="demo-space demo-space-1"></div>
@@ -93,11 +142,12 @@ export default function Specs (props) {
             </div>
             
             <div className="section__container">
-                <h4>Color</h4>
+                <h4 className="section-title">Color</h4>
                 <div className="snippet-section__container">
                     <div className="section-child-container demo-template__container">
                         <div className="color-scale__section color-light-scale">
-                            <h5>Light Scale</h5>
+                            <h5 className="color-scale-subtitle">Light Scale</h5>
+                            {/* <div className="demo-color color-light00">Light 00</div> */}
                             <div className="demo-color color-light01">Light 01</div>
                             <div className="demo-color color-light02">Light 02</div>
                             <div className="demo-color color-light03">Light 03</div>
@@ -109,7 +159,7 @@ export default function Specs (props) {
                             <div className="demo-color color-light09">Light 09</div>
                         </div>
                         <div className="color-scale__section color-grey-scale">
-                            <h5>Grey Scale</h5>
+                            <h5 className="color-scale-subtitle">Grey Scale</h5>
                             <div className="single-color__container">
                                 <div className="demo-color color-grey01"></div>
                                 <div className="demo-color-text">Grey 01</div>
@@ -139,6 +189,43 @@ export default function Specs (props) {
                                 --lightscaleHueIncrement: 4;<br />
                                 --lightscaleSaturationIncrement: 0%;<br />
                                 --lightscaleLightnessIncrement: 7%;<br />
+                                <br />
+                                --light1H: var(--initiallightHue);
+                                --light2H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 1);<br />
+                                --light3H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 2);<br />
+                                --light4H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 3);<br />
+                                --light5H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 4);<br />
+                                --light6H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 5);<br />
+                                --light7H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 6);<br />
+                                --light8H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 7);<br />
+                                --light9H: calc(var(--initiallightHue) - var(--lightscaleHueIncrement) * 8);<br />
+                                --light1S: var(--initiallightSaturation);<br />
+                                --light2S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 1);<br />
+                                --light3S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 2);<br />
+                                --light4S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 3);<br />
+                                --light5S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 4);<br />
+                                --light6S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 5);<br />
+                                --light7S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 6);<br />
+                                --light8S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 7);<br />
+                                --light9S: calc(var(--initiallightSaturation) - var(--lightscaleSaturationIncrement) * 8);<br />
+                                --light1L: var(--initiallightLightness);<br />
+                                --light2L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 1);<br />
+                                --light3L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 2);<br />
+                                --light4L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 3);<br />
+                                --light5L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 4);<br />
+                                --light6L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 5);<br />
+                                --light7L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 6);<br />
+                                --light8L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 7);<br />
+                                --light9L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 8);<br /> 
+                                --light-01: hsl(var(--light1H), var(--light1S), var(--light1L));<br />
+                                --light-02: hsl(var(--light2H), var(--light2S), var(--light2L));<br />
+                                --light-03: hsl(var(--light3H), var(--light3S), var(--light3L));<br />
+                                --light-04: hsl(var(--light4H), var(--light4S), var(--light4L));<br />
+                                --light-05: hsl(var(--light5H), var(--light5S), var(--light5L));<br />
+                                --light-06: hsl(var(--light6H), var(--light6S), var(--light6L));<br />
+                                --light-07: hsl(var(--light7H), var(--light7S), var(--light7L));<br />
+                                --light-08: hsl(var(--light8H), var(--light8S), var(--light8L));<br />
+                                --light-09: hsl(var(--light9H), var(--light9S), var(--light9L));<br />
                             </code>
                         </pre>
                     </div>
@@ -146,7 +233,7 @@ export default function Specs (props) {
             </div>
             
             <div className="section__container">
-                <h4>Layout</h4>
+                <h4 className="section-title">Layout</h4>
                 <div className="snippet-section__container">
                     <div className="section-child-container demo-template__container demo-layout__wrapper">
                         <div className="demo-layout-square"></div>
@@ -164,7 +251,7 @@ export default function Specs (props) {
             </div>
 
             <div className="section__container">
-                <h4>Dark Mode</h4>
+                <h4 className="section-title">Dark Mode</h4>
                 <div className="snippet-section__container">
                     {/* <div className="section-child-container demo-template__container demo-layout__wrapper">
                         <div className="demo-layout-square"></div>
@@ -179,6 +266,9 @@ export default function Specs (props) {
                         </pre>
                     </div>
                 </div>
+            </div>
+            <div>
+                <button onClick={generateZipFile}>Download Project</button>
             </div>
         </div>
     )
