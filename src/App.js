@@ -28,7 +28,7 @@ function App() {
     setinitialFontSize(event.target.value);
   }
 
-  const [factor, setFactor] = useState('1.5');
+  const [factor, setFactor] = useState('1.28');
 
   function handleFactor (event) {
     document.documentElement.style.setProperty('--initialRatio', event.target.value);
@@ -44,7 +44,7 @@ function App() {
     setLineheight(event.target.value);
   }
 
-  const [lineheightIncrement, setLineheightIncrement] = useState('1.5');
+  const [lineheightIncrement, setLineheightIncrement] = useState('1.22');
 
   const handleLineheightIncrement = (event) => {
     document.documentElement.style.setProperty('--lineheightIncrement', event.target.value);

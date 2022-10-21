@@ -1,10 +1,14 @@
 import React from "react";
+import './Demo.css'
+import '../index.css'
+// import '../StarterKit/header.css'
+import Microsite from "../components/Microsite";
 
 const Demo = () => {
     return (
-        <div className="page-container">
-            <h1>Designer tool</h1>
-        </div>
+      <div>
+        <Microsite></Microsite>
+      </div>
     )
 }
 

@@ -158,7 +158,7 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Layout</h5>
                 <div>
                     <label className="settings-label">Border Radius</label>
-                    <input name='borderRadius' min='0' max='100'type='range' defaultValue="8" step="0.01" onChange={props.handleBorderRadius} />
+                    <input name='borderRadius' min='0' max='50'type='range' defaultValue="8" step="0.01" onChange={props.handleBorderRadius} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.borderRadius}</p>
                         <p className="settings-value">px</p>

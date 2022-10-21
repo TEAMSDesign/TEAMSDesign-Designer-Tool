@@ -1,7 +1,6 @@
-/* Header - to header.css */
 header {
-    width: calc(100% - 320px);
-    /* margin: auto; */
+    width: calc(100%);
+    margin: auto;
     height: 5rem;
     padding: 1rem 1rem;
     position: sticky;
@@ -213,55 +212,3 @@ header {
     margin-left: var(--td-element-margin);
     margin-bottom: 0;
   }
-
-  /* HERE */
-  .logo {
-    font-weight: bold;
-    margin-left: 8px;
-}
-
-.hero {
-    width: inherit;
-    /* background-image: url("../../images/default-image.png"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: var(--main-margin) 121px 100px 121px;
-    margin-bottom: var(--section-margin);
-}
-
-.hero__text-container {
-    width: 100%;
-    max-width: 812px;
-    /* height: 362px; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.hero button {
-    margin-top: 31px;
-    font-size: 20px;
-    height: 49px;
-}
-
-.jumbo-card {
-    display: flex;
-    flex-direction: column;
-    width: 930px;
-    max-width: 100%;
-    margin-top: 0;
-    margin-right: var(--main-margin);
-    margin-bottom: var(--section-margin);
-    margin-left: var(--main-margin);
-}
-
-.jumbo-card__image-container {
-    width: inherit;
-    height: 100%;
-    margin-bottom: 20px;
-}
-
-.jumbo-card p {
-    width: inherit;
-}
