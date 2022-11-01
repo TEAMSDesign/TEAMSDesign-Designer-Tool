@@ -13,18 +13,18 @@ export default function DesignerToolContainer(props) {
 
       let activeStyle = {
         color: "#3b5aab",
-        backgroundColor: "var(--bg-color-card)",
+        backgroundColor: "var(--tool-bg-color-body)",
       }
 
-      const [showHex, setShowHex] = useState(true);
+      const [showHex, setShowHex] = useState(false);
 
       const handleShowHex = event => {
-        setShowHex(true);
         setShowHsl(false);
+        setShowHex(true);
         
       }
 
-      const [showHsl, setShowHsl] = useState(false);
+      const [showHsl, setShowHsl] = useState(true);
 
       const handleShowHsl = event => {
           setShowHsl(true);
@@ -67,7 +67,7 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Typography</h5>
                 <div>
                     <label className="settings-label">Base Font Size</label>
-                    <input name='baseFontSize' min='8' max='80'type='range' defaultValue="16" step="0.01" onChange={props.handleSizeChange} />
+                    <input name='baseFontSize' min='12' max='32'type='range' defaultValue="16" step="0.01" onChange={props.handleSizeChange} />
                     <div className="settings-value-row">
                         <p className="settings-value">{newInitialFontSize}</p>
                         <p className="settings-value">px</p>
@@ -87,8 +87,8 @@ export default function DesignerToolContainer(props) {
             <div className="settings-section">
                 <h5 className="settings-subtitle">Spacing</h5>
                 <div>
-                    <label className="settings-label">Linehieght</label>
-                    <input name='lineheight' min='1' max='40' type='range' defaultValue="24" step="0.1" onChange={props.handleLineheight} />
+                    <label className="settings-label">Unit</label>
+                    <input name='lineheight' min='1' max='30' type='range' defaultValue="16" step="0.1" onChange={props.handleLineheight} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.lineheight}</p>
                         <p className="settings-value">px</p>
@@ -97,7 +97,7 @@ export default function DesignerToolContainer(props) {
 
                 <div>
                     <label className="settings-label">Space Proportion</label>
-                    <input name='lineheightIncrement' min='1' max='2' type='range' defaultValue="1.5" step="0.01" onChange={props.handleLineheightIncrement} />
+                    <input name='lineheightIncrement' min='1' max='1.5' type='range' defaultValue="1.22" step="0.01" onChange={props.handleLineheightIncrement} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.lineheightIncrement}</p>
                         <p className="settings-value">ratio</p>
@@ -109,8 +109,8 @@ export default function DesignerToolContainer(props) {
                 <div className="settings-subtitle-color">
                     <h5 className="settings-subtitle">Color</h5>
                     <div className="settings-color-toggle-wrapper">
-                        <button id="hexButton" className={"settings-color-button"} style={ showHex ? activeStyle : undefined} onClick={handleShowHex}>HEX</button>
                         <button id="hlsButton" className={"settings-color-button"} style={ showHsl ? activeStyle : undefined} onClick={handleShowHsl}>HSL</button>
+                        <button disabled id="hexButton" className={"settings-color-button"} style={ showHex ? activeStyle : undefined} onClick={handleShowHex}>HEX</button>
                     </div>
                 </div>
                 {showHex && (
@@ -158,7 +158,7 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Layout</h5>
                 <div>
                     <label className="settings-label">Border Radius</label>
-                    <input name='borderRadius' min='0' max='50'type='range' defaultValue="8" step="0.01" onChange={props.handleBorderRadius} />
+                    <input name='borderRadius' min='0' max='50'type='range' defaultValue="0" step="0.01" onChange={props.handleBorderRadius} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.borderRadius}</p>
                         <p className="settings-value">px</p>
@@ -173,6 +173,29 @@ export default function DesignerToolContainer(props) {
                         <p className="settings-value">px</p>
                     </div>
                 </div>
+            </div>
+
+            <div className="settings-section">
+                <h5 className="settings-subtitle">Custom Variables</h5>
+                <div>
+                    <label className="settings-label" for="variables">Variable</label>
+                    <select name="variables" id="variables" className="variables-select">
+                        <option value="volvo">--</option>
+                        <option value="volvo">--bg-color-primary-button</option>
+                        <option value="saab">--border-color-primary-button</option>
+                        <option value="mercedes">--border-radius-primary-button</option>
+                        <option value="audi">--padding-secondary-button</option>
+                    </select>
+                    <label className="settings-label" for="variables">Value</label><br />
+                    <div className="custom-variables__input-container">
+                        <input className="custom-variables__input" />
+                        <button className="variable-button">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="download-section">
+                <a className="download-button" href="https://github.com/TEAMSDesign/StarterKit/archive/refs/heads/main.zip">Download Zip</a>
             </div>
         </div>
     );

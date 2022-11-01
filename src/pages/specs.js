@@ -147,34 +147,101 @@ export default function Specs (props) {
                     <div className="section-child-container demo-template__container">
                         <div className="color-scale__section color-light-scale">
                             <h5 className="color-scale-subtitle">Light Scale</h5>
-                            {/* <div className="demo-color color-light00">Light 00</div> */}
-                            <div className="demo-color color-light01">Light 01</div>
-                            <div className="demo-color color-light02">Light 02</div>
-                            <div className="demo-color color-light03">Light 03</div>
-                            <div className="demo-color color-light04">Light 04</div>
-                            <div className="demo-color color-light05">Light 05</div>
-                            <div className="demo-color color-light06">Light 06</div>
-                            <div className="demo-color color-light07">Light 07</div>
-                            <div className="demo-color color-light08">Light 08</div>
-                            <div className="demo-color color-light09">Light 09</div>
+                            {/* <div className="single-color__container">
+                                <div className="demo-color color-light00"></div>
+                                <div className="demo-color-text">Light 00</div>
+                            </div> */}
+                            <div className="single-color__container">
+                                <div className="demo-color color-light-01"></div>
+                                <div className="demo-color-text">Light -01</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light00"></div>
+                                <div className="demo-color-text">Light 00</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light01"></div>
+                                <div className="demo-color-text base-color">Light 01</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light02"></div>
+                                <div className="demo-color-text">Light 02</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light03"></div>
+                                <div className="demo-color-text">Light 03</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light04"></div>
+                                <div className="demo-color-text">Light 04</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light05"></div>
+                                <div className="demo-color-text">Light 05</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light06"></div>
+                                <div className="demo-color-text">Light 06</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light07"></div>
+                                <div className="demo-color-text">Light 07</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light08"></div>
+                                <div className="demo-color-text">Light 08</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-light09"></div>
+                                <div className="demo-color-text">Light 09</div>
+                            </div>
                         </div>
                         <div className="color-scale__section color-grey-scale">
                             <h5 className="color-scale-subtitle">Grey Scale</h5>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey00"></div>
+                                <div className="demo-color-text">Grey 00</div>
+                            </div>
                             <div className="single-color__container">
                                 <div className="demo-color color-grey01"></div>
                                 <div className="demo-color-text">Grey 01</div>
                             </div>
                             <div className="single-color__container">
                                 <div className="demo-color color-grey02"></div>
-                                <div>Grey 02</div>
+                                <div className="demo-color-text">Grey 02</div>
                             </div>
-                            <div className="demo-color color-grey03">Grey 03</div>
-                            <div className="demo-color color-grey04">Grey 04</div>
-                            <div className="demo-color color-grey05">Grey 05</div>
-                            <div className="demo-color color-grey06">Grey 06</div>
-                            <div className="demo-color color-grey07">Grey 07</div>
-                            <div className="demo-color color-grey08">Grey 08</div>
-                            <div className="demo-color color-grey09">Grey 09</div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey03"></div>
+                                <div className="demo-color-text">Grey 03</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey04"></div>
+                                <div className="demo-color-text">Grey 04</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey05"></div>
+                                <div className="demo-color-text">Grey 05</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey06"></div>
+                                <div className="demo-color-text">Grey 06</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey07"></div>
+                                <div className="demo-color-text">Grey 07</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey08"></div>
+                                <div className="demo-color-text">Grey 08</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey09"></div>
+                                <div className="demo-color-text">Grey 09</div>
+                            </div>
+                            <div className="single-color__container">
+                                <div className="demo-color color-grey10"></div>
+                                <div className="demo-color-text">Grey 10</div>
+                            </div>
                         </div>
                     </div>
                     <div className="section-child-container code__container">
@@ -267,8 +334,25 @@ export default function Specs (props) {
                     </div>
                 </div>
             </div>
-            <div>
-                <button onClick={generateZipFile}>Download Project</button>
+
+            <div className="section__container">
+                <h4 className="section-title">Customized Variables</h4>
+                <div className="snippet-section__container">
+                    {/* <div className="section-child-container demo-template__container demo-layout__wrapper">
+                        <div className="demo-layout-square"></div>
+                        <div className="demo-layout-rect"></div>
+                    </div> */}
+                    <div className="section-child-container code__container">
+                        <div className="code-remove__container">
+                            <button className="variable-remove-button">-</button>
+                            <code>--bg-color-primary-button: #3b5aab;</code>
+                        </div>
+                        <div className="code-remove__container">
+                            <button className="variable-remove-button">-</button>
+                            <code>--border-radius-primary-button: 8px;</code>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

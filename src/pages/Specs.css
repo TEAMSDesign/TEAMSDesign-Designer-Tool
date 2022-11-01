@@ -79,7 +79,7 @@
 }
 
 .demo-space {
-    background-color: var(--font-color-primary);
+    background-color: var(--body-color);
     margin-bottom: 10px;
 }
 
@@ -127,21 +127,26 @@
 }
 
 .demo-color {
-    width: 100%;
-    max-width: 500px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    padding-left: 14px;
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 8px;
 }
 
 .color-scale__section div {
     font-size: 14px;
 }
 
+.base-color {
+    font-weight: 600;
+}
+
+.color-light-01 {
+    background-color: var(--light-increment-70);
+}
+
 .color-light00 {
-    background-color: var(--light-00);
-    color: var(--light-09);
+    background-color: var(--light-increment-60);
 }
 
 .color-light01 {
@@ -195,64 +200,49 @@
     align-items: center;
     margin-bottom: 4px;
 }
-
-/* .color-grey01 {
-    background-color: var(--grey-01);
-    color: var(--grey-09);
-} */
-.color-grey01 {
-    background-color: var(--grey-01);
-    width: 60px;
-    height: 40px;
-    border-radius: 8px;
-    margin-right: 8px;
+.color-grey00 {
+    background-color: var(--grey-00);
+    border: 0.5px solid rgb(227, 224, 224);
 }
 
-/* .color-grey02 {
-    background-color: var(--grey-02);
-    color: var(--grey-09);
-} */
+.color-grey01 {
+    background-color: var(--grey-01);
+}
+
 .color-grey02 {
     background-color: var(--grey-02);
-    width: 60px;
-    height: 40px;
-    border-radius: 8px;
-    margin-right: 8px;
 }
 
 .color-grey03 {
     background-color: var(--grey-03);
-    color: var(--grey-09);
 }
 
 .color-grey04 {
     background-color: var(--grey-04);
-    color: var(--grey-09);
 }
 
 .color-grey05 {
     background-color: var(--grey-05);
-    color: var(--grey-09);
 }
 
 .color-grey06 {
     background-color: var(--grey-06);
-    color: var(--grey-01);
 }
 
 .color-grey07 {
     background-color: var(--grey-07);
-    color: var(--grey-01);
 }
 
 .color-grey08 {
     background-color: var(--grey-08);
-    color: var(--grey-01);
 }
 
 .color-grey09 {
     background-color: var(--grey-09);
-    color: var(--grey-01);
+}
+
+.color-grey10 {
+    background-color: var(--grey-10);
 }
 
 .demo-layout__wrapper {
@@ -278,4 +268,26 @@
 .demo-layout-rect {
     width: 200px;
     height: 40px;
+}
+
+.code-remove__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.variable-remove-button {
+    width: 42px;
+    height: 42px;
+    background-color: var(--td-blue);
+    color: #f9fafb;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-right: 15px;
 }

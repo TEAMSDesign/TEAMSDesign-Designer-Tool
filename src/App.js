@@ -36,7 +36,7 @@ function App() {
     setFactor(event.target.value);
   }
 
-  const [lineheight, setLineheight] = useState('24');
+  const [lineheight, setLineheight] = useState('16');
 
   const handleLineheight = (event) => {
     document.documentElement.style.setProperty('--initialLineheight', event.target.value + 'px');

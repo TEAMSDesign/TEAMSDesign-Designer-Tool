@@ -9,6 +9,26 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
+// Tabs
+    const openContent = (event, areaContent) => {
+    var k, tabContent, tabItem;
+    console.log(event);
+    console.log(areaContent);
+    
+    tabContent = document.getElementsByClassName("tab-content");
+    for (k = 0; k < tabContent.length; k++) {
+        tabContent[k].style.display = "none";
+    }
+
+    tabItem = document.getElementsByClassName("tab-item");
+    for (k = 0; k < tabItem.length; k++) {
+      tabItem[k].className = tabItem[k].className.replace(" active", "");
+    }
+
+    document.getElementById(areaContent).style.display = "block";
+    event.currentTarget.className += " active";
+}
+
 const Microsite = () => {
     return (
       <div style={{width: `calc(100vw - 320px)`}}>
@@ -27,24 +47,11 @@ const Microsite = () => {
             </button>
             <div id="NavbarCollapse" class="navbar-collapse">
               <ul>
-                <li>
-                  <a href="#" type="button">link 1</a>
-                </li>
-                <li>
-                  <a href="#" type="button">link 2</a>
-                </li>
-                <li>
-                  <a href="#" type="button">link 3</a>
-                </li>
-                <li>
-                  <a href="#" type="button">link 4</a>
-                </li>
-                <li>
-                  <a class="icon-button" href="#" type="button">
-                    {/* <i class="material-icons">search</i> */}
-                    <SearchOutlinedIcon />
-                  </a>
-                </li>
+                <li><a href="#" type="button">link 1</a></li>
+                <li><a href="#" type="button">link 2</a></li>
+                <li><a href="#" type="button">link 3</a></li>
+                <li><a href="#" type="button">link 4</a></li>
+                <li><a class="icon-button" href="#" type="button"><SearchOutlinedIcon /></a></li>
               </ul>
             </div>
           </nav>
@@ -55,8 +62,6 @@ const Microsite = () => {
             {/* Add image in css file */}
             <div class="hero__text-container">
                 <h1>The basics of responsive layout</h1>
-                <h2>The basics of responsive layout</h2>
-                <h3>When adapting the layout grid for larger screens, divide content and elements into columns.</h3>
                 <h4>When adapting the layout grid for larger screens, divide content and elements into columns.</h4>
                 <button class="button-primary">Learn More</button>
             </div>
@@ -72,12 +77,12 @@ const Microsite = () => {
             <div class="tabs">
                 <h3>Lorem Ipsum is simply dummy text of the typesetting industry</h3>
                 <div class="tab-menu">
-                    <button class="tab-item active" onclick="openContent(event, 'tab1')">Tab 1</button>
-                    <button class="tab-item" onclick="openContent(event, 'tab2')">Tab 2</button>
-                    <button class="tab-item" disabled onclick="openContent(event, 'tab3')">Tab 3</button>
+                    <button class="tab-item active" onClick={event => openContent(event, 'tab1')}>Tab 1</button>
+                    <button class="tab-item" onClick={event => openContent(event, 'tab2')}>Tab 2</button>
+                    <button class="tab-item" disabled onClick={event => openContent(event, 'tab3')}>Tab 3</button>
                 </div>
                 <div id="tab1" class="tab-content" style={{display: "block"}}>
-                    <table class="table-wide table-border">
+                    <table class="table-wide table-border table-height-md">
                     <tr>
                         <th>Table item name</th>
                         <th scope="row">Value</th>
@@ -114,7 +119,7 @@ const Microsite = () => {
                     </div>
                 </div>
                 <div id="tab2" class="tab-content">
-                    <table class="table-wide table-border">
+                    <table class="table-wide table-border table-height-md">
                     <tr>
                         <th>Table item name</th>
                         <th scope="row">Value</th>
@@ -172,7 +177,7 @@ const Microsite = () => {
             </div>
 
             <div class="table-wide__container">
-                <table class="table-wide table-multiselect table-border">
+                <table class="table-wide table-multiselect table-border table-height-lg">
                 <tr>
                     <th class="table-multiselect__checkbox-container">
                         <input type="checkbox" />
@@ -252,22 +257,22 @@ const Microsite = () => {
             </div>
 
             <div class="icon-card-group">
-                <div class="icon-card">
-                    <OfflineBoltOutlinedIcon />
+                <div class="icon-card icon-card-react">
+                    <OfflineBoltOutlinedIcon className="icon-card__icon" />
                     <h5>Feature name</h5>
                     <p>I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</p>
                 </div>
-                <div class="icon-card">
+                <div class="icon-card icon-card-react">
                     <FaceOutlinedIcon />
                     <h5>Feature name</h5>
                     <p>Many say exploration is part of our destiny, But it’s actually our duty to future generations.</p>
                 </div>
-                <div class="icon-card">
+                <div class="icon-card icon-card-react">
                     <OfflineBoltOutlinedIcon />
                     <h5>Feature name</h5>
                     <p>We predict too much for the next year and yet far too little for the next ten.</p>
                 </div>
-                <div class="icon-card">
+                <div class="icon-card icon-card-react">
                     <AutoModeOutlinedIcon />
                     <h5>Feature name</h5>
                     <p>Man must explore, and this is exploration at its greatest.</p>
@@ -278,7 +283,7 @@ const Microsite = () => {
                 <img src={defaultImage} alt="" />
             </div>
 
-            <div class="grid-2x1">
+            <div class="grid-text">
                 <div class="grid-text-title">
                     <h3>Lorem Ipsum is simply dummy text of the typesetting industry</h3>
                 </div>
@@ -376,7 +381,7 @@ const Microsite = () => {
             <div class="large-table__container">
                 <h4>Lorem Ipsum is simply dummy text</h4>
                 <div class="large-table__table-content">
-                    <table class="table-small">
+                    <table class="table-height-sm">
                     <caption></caption>
                     <tr>
                         <th>Table item name</th>
@@ -563,8 +568,8 @@ const Microsite = () => {
                     <label for="">Label</label>
                     <textarea name="" id="" cols="30" rows="10" placeholder="Input text..."></textarea>
                     <div class="form__buttons">
-                    <button class="button-primary">Primary</button>
-                    <button class="button-secondary">Secondary</button>
+                        <button class="button-primary">Primary</button>
+                        <button class="button-secondary">Secondary</button>
                     </div>
                 </form>
             </div>
@@ -619,7 +624,7 @@ const Microsite = () => {
       <a href="">&copy; myWebsite</a>
       <div class="footer-legal">
         <a href="">Imprint</a> |
-        <a href="">Privacy policy</a>
+        <a href=""> Privacy policy</a>
       </div>
     </div>
   </footer>

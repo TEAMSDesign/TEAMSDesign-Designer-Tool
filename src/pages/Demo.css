@@ -1,7 +1,6 @@
 /* Header - to header.css */
-header {
+/* header {
     width: calc(100% - 320px);
-    /* margin: auto; */
     height: 5rem;
     padding: 1rem 1rem;
     position: sticky;
@@ -27,7 +26,6 @@ header {
   nav {
     width: 100%;
     height: 100%;
-    /* display: inline-block; */
     display: flex;
     background-color: var(--bg-color-header);
     transition: var(--transition-slow);
@@ -38,13 +36,11 @@ header {
     justify-content: space-between;
   }
   nav ul {
-    /* height: 2.5rem; */
     list-style: none;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 0;
-    /* margin: 2rem 4rem 0 0; */
     transition: var(--transition-fast);
     transition-property: color, background-color;
   }
@@ -52,13 +48,6 @@ header {
     margin-right: 1rem;
     transition: var(--transition-slow);
     transition-property: transform;
-  }
-  nav ul li:last-child {
-    /* margin-left: auto; */
-  }
-  nav ul li:nth-last-child(1) {
-    /* margin-left: auto;
-    margin-right: auto; */
   }
   nav ul li {
     display: inline-block;
@@ -114,48 +103,12 @@ header {
     transition-property: color, background-color;
     pointer-events: auto;
   }
-  /* .logo {
-    position: absolute;
-    top: 4rem; left: 8rem;
-    transform-origin: left top;
-    z-index: 100;
-  } */
   .teams-logo .logo-font path {
     fill: var(--font-color-primary);
     transition: var(--transition-fast);
     transition-property: fill;
     opacity: 0;
   }
-  
-  /* @media (max-width: 800px) {
-    header {
-      height: 7rem;
-    }
-    nav ul li a {
-      font-size: 2rem;
-    }
-    .logo {
-      top: 2rem; left: 4rem;
-    }
-    .nav-overlay {
-      height: calc(100vh - 7rem);
-      top: 7rem;
-    }
-  }
-  @media (max-width: 1280px) {
-    nav ul li:not(:nth-child(1)):not(:last-child) {
-      display: none;
-    }
-    nav ul li:last-child {
-      margin: 0 0 0 auto !important;
-    }
-  }
-  @media (min-width: 1920px) {
-    header {
-      max-width: 1920px;
-      margin: 0 auto -13rem;
-    }
-  } */
   
   .navbar-toggle {
     display: none;
@@ -164,10 +117,6 @@ header {
   #closeIcon {
     display: none;
   }
-  
-  /* .navbar-collapse {
-    display: block;
-  } */
   
   .navbar-collapse ul {
     margin-bottom: 0;
@@ -208,60 +157,11 @@ header {
     }
   }
   
-  /* custom */
   nav > button {
     margin-left: var(--td-element-margin);
     margin-bottom: 0;
   }
 
-  /* HERE */
   .logo {
     font-weight: bold;
-    margin-left: 8px;
-}
-
-.hero {
-    width: inherit;
-    /* background-image: url("../../images/default-image.png"); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: var(--main-margin) 121px 100px 121px;
-    margin-bottom: var(--section-margin);
-}
-
-.hero__text-container {
-    width: 100%;
-    max-width: 812px;
-    /* height: 362px; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.hero button {
-    margin-top: 31px;
-    font-size: 20px;
-    height: 49px;
-}
-
-.jumbo-card {
-    display: flex;
-    flex-direction: column;
-    width: 930px;
-    max-width: 100%;
-    margin-top: 0;
-    margin-right: var(--main-margin);
-    margin-bottom: var(--section-margin);
-    margin-left: var(--main-margin);
-}
-
-.jumbo-card__image-container {
-    width: inherit;
-    height: 100%;
-    margin-bottom: 20px;
-}
-
-.jumbo-card p {
-    width: inherit;
-}
+}*/
