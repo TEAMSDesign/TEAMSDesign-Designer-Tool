@@ -67,7 +67,7 @@ export default function DesignerToolContainer(props) {
                 <h5 className="settings-subtitle">Typography</h5>
                 <div>
                     <label className="settings-label">Base Font Size</label>
-                    <input name='baseFontSize' min='12' max='32'type='range' defaultValue="16" step="0.01" onChange={props.handleSizeChange} />
+                    <input name='baseFontSize' min='12' max='32'type='range' defaultValue="16" step="0.1" onChange={props.handleSizeChange} />
                     <div className="settings-value-row">
                         <p className="settings-value">{newInitialFontSize}</p>
                         <p className="settings-value">px</p>
@@ -76,7 +76,7 @@ export default function DesignerToolContainer(props) {
 
                 <div>
                     <label className="settings-label">Font Proportion</label>
-                    <input name='factor' min='1' max='2'type='range' defaultValue="1.3" step="0.01" onChange={props.handleFactor} />
+                    <input name='factor' min='1' max='1.5'type='range' defaultValue="1.3" step="0.01" onChange={props.handleFactor} />
                     <div className="settings-value-row">
                         <p className="settings-value">{props.factor}</p>
                         <p className="settings-value">ratio</p>
