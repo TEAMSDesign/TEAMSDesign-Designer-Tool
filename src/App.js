@@ -21,6 +21,7 @@ function App() {
     event.target.checked ? document.body.setAttribute('data-theme', 'dark') : document.body.removeAttribute('data-theme');
   }
 
+  // Base Font Size
   const [initialFontSize, setinitialFontSize] = useState("16");
 
   function handleSizeChange (event) {
@@ -28,7 +29,8 @@ function App() {
     setinitialFontSize(event.target.value);
   }
 
-  const [factor, setFactor] = useState('1.28');
+  // Font Proportion
+  const [factor, setFactor] = useState('1.3');
 
   function handleFactor (event) {
     document.documentElement.style.setProperty('--initialRatio', event.target.value);
@@ -36,6 +38,7 @@ function App() {
     setFactor(event.target.value);
   }
 
+  // Unit
   const [lineheight, setLineheight] = useState('16');
 
   const handleLineheight = (event) => {
@@ -44,6 +47,7 @@ function App() {
     setLineheight(event.target.value);
   }
 
+  // Space Proportion
   const [lineheightIncrement, setLineheightIncrement] = useState('1.22');
 
   const handleLineheightIncrement = (event) => {
@@ -52,6 +56,7 @@ function App() {
     setLineheightIncrement(event.target.value);
   }
 
+  // HEX Color
   const [baseColor, setBaseColor] = useState('#3b5cad');
 
   function handleColorChange (event) {
@@ -59,6 +64,8 @@ function App() {
     setBaseColor(event.target.value);
   }
 
+
+  // Hue
   const [hue, setHue] = useState('223');
 
   function handleHue (event) {
@@ -67,6 +74,7 @@ function App() {
     setHue(event.target.value);
   }
 
+  // Saturation
   const [saturation, setSaturation] = useState('49');
 
   const handleSaturation = (event) => {
@@ -75,6 +83,7 @@ function App() {
     setSaturation(event.target.value);
   }
 
+  // Lightness
   const [lightness, setLightness] = useState('45');
 
   function handleLightness (event) {
@@ -83,6 +92,7 @@ function App() {
     setLightness(event.target.value);
   }
 
+  // Border Radius
   const [borderRadius, setBorderRadius] = useState('0')
 
   function handleBorderRadius (event) {
@@ -90,6 +100,7 @@ function App() {
     setBorderRadius(event.target.value);
   }
 
+  // Border
   const [border, setBorder] = useState('1');
 
   function handleBorder (event) {

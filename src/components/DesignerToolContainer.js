@@ -12,7 +12,7 @@ export default function DesignerToolContainer(props) {
       }
 
       let activeStyle = {
-        color: "#3b5aab",
+        color: "var(--tool-font-color-button)",
         backgroundColor: "var(--tool-bg-color-body)",
       }
 
@@ -180,7 +180,7 @@ export default function DesignerToolContainer(props) {
                 <div>
                     <label className="settings-label" for="variables">Variable</label>
                     <select name="variables" id="variables" className="variables-select">
-                        <option value="volvo">--</option>
+                        <option value="volvo">none</option>
                         <option value="volvo">--bg-color-primary-button</option>
                         <option value="saab">--border-color-primary-button</option>
                         <option value="mercedes">--border-radius-primary-button</option>
