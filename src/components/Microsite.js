@@ -8,6 +8,7 @@ import AutoModeOutlinedIcon from '@mui/icons-material/AutoModeOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { useState } from 'react'
 
 // Tabs
     const openContent = (event, areaContent) => {
@@ -29,21 +30,41 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
     event.currentTarget.className += " active";
 }
 
+// export default function Microsite() {
+
+// }
+
 const Microsite = () => {
+
+const [showNavClose, setShowNavClose] = useState(false);
+const [showNavMenu, setShowNavMenu] = useState(true);
+
+const handleNavClose = event => {
+    setShowNavClose(true);
+    setShowNavMenu(false);
+    document.getElementById("closeIcon").style.display = "block";
+    document.getElementById("menuIcon").style.display = "none";
+    document.getElementById("NavbarCollapse").style.display = "block";
+}
+
+const handleNavMenu = event => {
+    setShowNavClose(false);
+    setShowNavMenu(true);
+    document.getElementById("closeIcon").style.display = "none";
+    document.getElementById("menuIcon").style.display = "block";
+    document.getElementById("NavbarCollapse").style.display = "none";
+}
+
     return (
-      <div style={{width: `calc(100vw - 320px)`}}>
+      <div className="editable-layout" style={{width: `calc(100vw - 320px)`}}>
         <header>
           <nav class="navbar">
-            <a href="#" class="logo">Brand Logo</a>
-            <button id="NavbarToggle" class="navbar-toggle" type="button">
+            <a href="#" className="logo">Brand Logo</a>
+            <button id="NavbarToggle" class="navbar-toggle" type="button" onClick={showNavClose ? handleNavMenu : handleNavClose}>
               {/* <span id="menuIcon" class="material-icons">menu</span>
               <span id="closeIcon"  class="material-icons">close</span> */}
-              <span id="menuIcon">
-                  <MenuOutlinedIcon />
-              </span>
-              <span id="closeIcon">
-                <CloseOutlinedIcon />
-              </span>
+              <span id="menuIcon"><MenuOutlinedIcon /></span>
+              <span id="closeIcon"><CloseOutlinedIcon /></span>
             </button>
             <div id="NavbarCollapse" class="navbar-collapse">
               <ul>

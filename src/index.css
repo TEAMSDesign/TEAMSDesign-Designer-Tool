@@ -225,6 +225,7 @@
     --col-gap-grid: var(--body-padding-sm);
     --row-gap-grid: var(--body-padding-sm);
     --icon-card-width: 338px;
+    --border-radius-card: var(--border-radius);
 
     --table-height-sm: 32px;
     --table-height-md: 40px;
@@ -299,8 +300,7 @@
     --color-footer: var(--grey-01);
     --padding-footer: calc(var(--body-padding-sm) * 2) var(--body-padding-sm);
 
-    --box-shadow-color-light: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-    --box-shadow-color-dark: 0 1px 2px 0 rgba(196, 210, 222, 0.3), 0 2px 6px 2px rgba(196, 211, 221, 0.15);
+    --box-shadow-color: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     --transition-fast: all 200ms cubic-bezier(0.235, 0.615, 0.185, 0.995);
     --transition-slow: all 500ms cubic-bezier(0.235, 0.615, 0.185, 0.995);
 
@@ -346,12 +346,14 @@
     --tool-bg-color-code: #eaecf0;
     --tool-border-color-primary: #22242a;
     --tool-border-color-secondary: #eaecf0;
-    --tool-box-shadow-color: var(--box-shadow-color-light);
+    --tool-box-shadow-color: var(--box-shadow-color);
     --tool-link-color: var(--td-blue);
     --tool-link-hover-color: var(--td-blue);
     --tool-progress-bar-bg-color: var(--td-light-blue);
     --tool-progress-bar-color: var(--td-blue);
     --tool-toggle-button-color: var(--td-grey-06);
+    --tool-button-color: var(--td-blue);
+    --tool-button-bg-color: var(--tool-bg-color-body);
     
 
     /*______  Input Range Slider Values  ______*/
@@ -399,16 +401,15 @@
     --active-bg-color-tab-button: var(--grey-02);
     --active-color-tab-button: var(--light-01);
     --active-border-color-tab-button: var(--light-01);
-    --disabled-color-tab-button: var(--light-01);
-    --disabled-bg-color-tab-button: var(--light-01);
-    --disabled-border-color-tab-button: var(--light-01);
+    --disabled-color-tab-button: var(--grey-06);
+    --disabled-bg-color-tab-button: var(--grey-07);
+    --disabled-border-color-tab-button: var(--grey-05);
     --color-label: var(--grey-01);
     --link-color: var(--grey-01);
     --hover-link-color:  var(--grey-01);
-    /* --border-color-primary: var(--grey-01); */
-    /* --border-color-secondary: var(var(--grey-08)); */
-    --bg-color-card: var(--light-04);
+    --bg-color-card: var(--grey-06);
     --color-card: var(--grey-01);
+    --border-radius-card: var(--border-radius);
     --border-bottom-table: 1px solid var(--grey-07);
     --table-zebra-striping-bg-color:  var(--grey-08);
     --bg-color-table-header: var(--grey-06);
@@ -425,13 +426,14 @@
     --bg-color-header: var(--grey-00);
     --color-header: var(--grey-09);
     --bg-color-header-link: var(--grey-09);
-    --color-header-link: var(--light-01);
+    --color-header-link: var(--grey-01);
     --hover-bg-color-header-link: var(--grey-09);
-    --hover-color-header-link: var(--light-00);
+    --hover-color-header-link: var(--light-01);
     --active-bg-color-header-link: var(--grey-00);
     --active-color-header-link: var(--light-01);
     --bg-color-footer: var(--light-04);
     --color-footer: var(--grey-01);
+    --box-shadow-color: 0 1px 2px 0 rgba(67, 72, 77, 0.3), 0 2px 6px 2px rgba(158, 172, 181, 0.15);
 
     /* Designer Tool Dark Mode */
     /* --tool-font-color-primary: #22242a; */
@@ -455,12 +457,14 @@
     --tool-bg-color-code: #22242a;
     --tool-border-color-primary: #f9fafb;
     --tool-border-color-secondary: #eaecf0;
-    --tool-box-shadow-color: var(--box-shadow-color-light);
+    --tool-box-shadow-color: var(--box-shadow-color);
     --tool-link-color: var(--td-light-blue);
     --tool-link-hover-color: var(--td-light-blue);
     --tool-progress-bar-bg-color: var(--td-dark-blue);
     --tool-progress-bar-color: var(--td-light-blue);
     --tool-toggle-button-color: var(--td-grey-06);
+    --tool-button-color: var(--td-blue);
+    --tool-button-bg-color: var(--tool-bg-color-body);
 
     --blend-mode: screen;
     --display-light: none;

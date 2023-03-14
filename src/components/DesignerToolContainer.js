@@ -21,7 +21,6 @@ export default function DesignerToolContainer(props) {
       const handleShowHex = event => {
         setShowHsl(false);
         setShowHex(true);
-        
       }
 
       const [showHsl, setShowHsl] = useState(true);

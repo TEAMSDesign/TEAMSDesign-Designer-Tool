@@ -5,7 +5,7 @@ body {
 .settings-drawer {
     width: 320px;
     height: 100vh;
-    box-shadow: var(--box-shadow-color-light);
+    box-shadow: var(--tool-box-shadow-color);
     padding: 0 24px 36px 24px;
     overflow-y: scroll;
     position: fixed;
@@ -17,11 +17,12 @@ body {
 }
 
 .settings-header {
-    height: 64px;
+    height: 72px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .settings-title {
@@ -39,13 +40,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-color: var(--tool-button-color);
+    border-width: 1.5px;
+    border-radius: 8px;
     border: none;
-    color: var(--tool-font-color-primary);
+    color: var(--tool-button-color);
+    background-color: var(--tool-button-bg-color);
+    margin-right: -6px;
+    margin-top: 8px;
 }
 
 .settings-close-button:hover{
-    background-color: var(--tool-bg-color-code);
-    color: var(--tool-font-color-primary);
+    background-color: var(--tool-button-color);
+    color: var(--tool-button-bg-color);
 }
 
 .settings-nav-section {

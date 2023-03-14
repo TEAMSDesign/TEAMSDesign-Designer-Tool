@@ -64,6 +64,7 @@ header {
   nav ul li.is-selected a {
     font-weight: 700;
     color: var(--body-color);
+    background-color: var(--bg-color-header-link);
   }
   nav ul li a {
     font-size: 1rem;
@@ -76,17 +77,14 @@ header {
     transition-property: color;
     padding: var(--padding-header-link);
   }
-
   nav ul li a:hover {
     color: var(--color-header-link);
     background-color: var(--hover-bg-color-header-link);
   }
-
   nav ul li a:active {
     color: var(--active-color-header-link);
     background-color: var(--active-bg-color-header-link);
   }
-
   @media(hover: hover) and (pointer: fine) {
     nav ul li a:hover {
       color: var(--hover-color-header-link);
@@ -197,9 +195,14 @@ header {
     }
   
     .navbar-toggle {
+      width: 42px;
+      height: 42px;
       display: block;
       padding: 0;
-      color: var(--body-color);
+      color: var(--color-secondary-button);
+      background-color: var(--bg-color-secondary-button);
+      border: none;
+      padding: 9px;
     }
   
     .navbar-collapse {
@@ -219,7 +222,7 @@ header {
       margin-left: calc(var(--body-padding-sm) / 2);
     }
   
-    .navbar-collapse ul button {
+    .navbar-collapse ul a[type=button] {
       margin-bottom: 1rem;
     }
   
@@ -539,6 +542,10 @@ table:not(.table-multiselect) tr:nth-child(even) {
 .section-title h2 {
     text-align: center;
     margin-bottom: var(--body-section-margin-lg);
+}
+
+.card {
+    border-radius: 50px;
 }
 
 .card-group {
