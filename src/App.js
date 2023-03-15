@@ -108,11 +108,28 @@ function App() {
     setBorder(event.target.value);
   }
 
+  // Props from Designer Tool
+  const [toolClosed, setToolClosed] = useState(false);
+
+  const handleToolClose = () => {
+    setToolClosed(true);
+    document.getElementById('settingsDrawer').style.width = '0';
+    document.getElementById('settingsDrawer').style.padding = '0';
+    // document.getElementById('settingsDrawer').style.boxShadow = 'none';
+  }
+
+  const handleToolOpen = () => {
+    setToolClosed(false);
+    document.getElementById('settingsDrawer').style.width = '320px';
+    document.getElementById('settingsDrawer').style.padding = '0 24px 36px 24px';
+  }
+
   return (
     <div className="App app-container">
       <Router>
         <Routes>
-          <Route path="/" element={<Demo />}>
+          <Route path="/" element={<Demo
+              toolClosed={toolClosed} />}>
           </Route>
           
           <Route path="/specs" element={
@@ -126,7 +143,8 @@ function App() {
               saturation={saturation + '%'}
               lightness={lightness + '%'}
               borderRadius={borderRadius + 'px'}
-              border={border + 'px'} />
+              border={border + 'px'}
+              toolClosed={toolClosed} />
             }>
           </Route>
 
@@ -144,8 +162,12 @@ function App() {
           handleSaturation={handleSaturation} saturation={saturation}
           handleLightness={handleLightness} lightness={lightness}
           handleBorderRadius={handleBorderRadius} borderRadius={borderRadius}
-          handleBorder={handleBorder} border={border} />
+          handleBorder={handleBorder} border={border}
+          handleToolClose={handleToolClose.bind(this)} />
       </Router>
+      <button id='settingsDrawerOpen' className="settings-open-button" onClick={handleToolOpen}>
+          <span class="material-symbols-outlined">arrow_back</span>
+      </button>
     </div>
   );
 }

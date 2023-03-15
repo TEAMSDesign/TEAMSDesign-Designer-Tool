@@ -7,9 +7,12 @@ export default function DesignerToolContainer(props) {
     useEffect(() => {
       }, []);
 
-      const handleClose = () => {
-          document.getElementById('settingsDrawer').style.display = 'none';
-      }
+    //   const [toolClosed, setToolClosed] = useState(false);
+
+    //   const handleToolClose = () => {
+    //       document.getElementById('settingsDrawer').style.display = 'none';
+    //       setToolClosed(true);
+    //   }
 
       let activeStyle = {
         color: "var(--tool-font-color-button)",
@@ -38,7 +41,8 @@ export default function DesignerToolContainer(props) {
             <div className="settings-header">
                 {/* <h5>TEAMS Designer</h5> */}
                 <h4 className="settings-title">Customization</h4>
-                <button className="settings-close-button" onClick={handleClose}>
+                {/* <button className="settings-close-button" onClick={handleToolClose}> */}
+                <button className="settings-close-button" onClick={props.handleToolClose}>
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>

@@ -16,6 +16,19 @@ body {
     z-index: 11;
 }
 
+/* .settings-open-drawer {
+    position: fixed;
+    right: 320px;
+    top: 50%;
+    box-shadow: var(--tool-box-shadow-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+} */
+
 .settings-header {
     height: 72px;
     width: 100%;
@@ -51,8 +64,8 @@ body {
 }
 
 .settings-close-button:hover{
-    background-color: var(--tool-button-color);
-    color: var(--tool-button-bg-color);
+  background-color: var(--tool-bg-color-code);
+  color: var(--tool-button-color);
 }
 
 .settings-nav-section {

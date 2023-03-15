@@ -2,6 +2,10 @@
     padding: 36px 20px 36px 32px;
 }
 
+.section__container {
+    width: 100%;
+}
+
 .section-title {
     font-size: 36px;
 }
@@ -30,7 +34,7 @@
 .snippet-section__container {
     display: flex;
     flex-direction: row;
-    width: calc(100vw - 320px - 52px);
+    /* width: calc(100vw - 320px - 52px); */
 }
 
 .demo-template__container {

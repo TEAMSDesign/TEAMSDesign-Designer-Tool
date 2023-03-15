@@ -34,7 +34,7 @@ import { useState } from 'react'
 
 // }
 
-const Microsite = () => {
+const Microsite = (props) => {
 
 const [showNavClose, setShowNavClose] = useState(false);
 const [showNavMenu, setShowNavMenu] = useState(true);
@@ -56,7 +56,7 @@ const handleNavMenu = event => {
 }
 
     return (
-      <div className="editable-layout" style={{width: `calc(100vw - 320px)`}}>
+      <div className="editable-layout" style={{width: props.toolClosed ? `100vw` : `calc(100vw - 320px)`}}>
         <header>
           <nav class="navbar">
             <a href="#" className="logo">Brand Logo</a>

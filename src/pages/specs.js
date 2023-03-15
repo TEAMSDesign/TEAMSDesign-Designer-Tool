@@ -57,7 +57,7 @@ export default function Specs (props) {
     }
 
     return (
-        <div className="page-container">
+        <div className="page-container" style={{width: props.toolClosed ? `100vw` : `calc(100vw - 320px - 52px)`}}>
             <div className="section__container">
                 <h4 className="section-title">Typography</h4>
                 <div className="snippet-section__container">

@@ -4,10 +4,10 @@ import '../index.css'
 // import '../StarterKit/header.css'
 import Microsite from "../components/Microsite";
 
-const Demo = () => {
+const Demo = (props) => {
     return (
       <div>
-        <Microsite></Microsite>
+        <Microsite toolClosed={props.toolClosed}></Microsite>
       </div>
     )
 }

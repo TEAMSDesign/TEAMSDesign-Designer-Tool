@@ -473,9 +473,9 @@
 
 /* App Global Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.page-container {
+/* .page-container {
     width: calc(100vw - 320px);
-}
+} */
 
 body::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari and Opera */
