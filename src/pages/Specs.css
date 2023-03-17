@@ -295,3 +295,9 @@
     margin-bottom: 0;
     margin-right: 15px;
 }
+
+@media ( max-width: 992px ) {
+    .code__container {
+        width: 100%;
+    }
+}

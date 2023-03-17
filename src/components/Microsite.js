@@ -278,7 +278,7 @@ const handleNavMenu = event => {
             </div>
 
             <div class="icon-card-group">
-                <div class="icon-card icon-card-react">
+                <div class="icon-card  icon-card-react">
                     <OfflineBoltOutlinedIcon className="icon-card__icon" />
                     <h5>Feature name</h5>
                     <p>I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</p>
