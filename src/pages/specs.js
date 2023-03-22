@@ -335,7 +335,7 @@ export default function Specs (props) {
                 </div>
             </div>
 
-            <div className="section__container">
+            <div id="customizedVariablesSpecs" className="section__container">
                 <h4 className="section-title">Customized Variables</h4>
                 <div className="snippet-section__container">
                     {/* <div className="section-child-container demo-template__container demo-layout__wrapper">

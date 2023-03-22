@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+#customizedVariablesSpecs {
+    display: none;
+}
+
 .section-title {
     font-size: 36px;
 }

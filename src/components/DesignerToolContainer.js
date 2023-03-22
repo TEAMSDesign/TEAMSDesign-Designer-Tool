@@ -178,7 +178,7 @@ export default function DesignerToolContainer(props) {
                 </div>
             </div>
 
-            <div className="settings-section">
+            <div id="customVariablesSection" className="settings-section">
                 <h5 className="settings-subtitle">Custom Variables</h5>
                 <div>
                     <label className="settings-label" for="variables">Variable</label>
