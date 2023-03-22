@@ -2,9 +2,9 @@ import './App.css';
 import DesignerToolContainer from './components/DesignerToolContainer';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Demo from "./pages/Demo"
-import Specs from "./pages/Specs"
-import ErrorPage from "./pages/ErrorPage"
+import Demo from "../src/pages/Demo"
+import Specs from "../pages/Specs"
+import ErrorPage from "../pages/ErrorPage"
 
 import * as React from "react";
 
