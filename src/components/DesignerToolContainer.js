@@ -177,7 +177,8 @@ export default function DesignerToolContainer(props) {
                     </div>
                 </div>
             </div>
-
+            
+            {/* create, add and remove custom variables feature */}
             <div id="customVariablesSection" className="settings-section">
                 <h5 className="settings-subtitle">Custom Variables</h5>
                 <div>
