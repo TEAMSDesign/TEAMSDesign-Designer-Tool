@@ -486,6 +486,7 @@ table:not(.table-multiselect) tr:nth-child(even) {
 }
 .card {
     border-radius: var(--border-radius-card);
+    overflow: hidden;
 }
 .card-group {
     width: inherit;
