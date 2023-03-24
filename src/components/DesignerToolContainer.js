@@ -199,7 +199,7 @@ export default function DesignerToolContainer(props) {
             </div>
 
             <div className="download-section">
-                <a className="download-button" href="https://github.com/TEAMSDesign/StarterKit/archive/refs/heads/main.zip">Download Zip</a>
+                <a className="download-button" href="https://github.com/TEAMSDesign/StarterKit/archive/refs/heads/main.zip">Download Zip</a> {/* Downloads file from github */}   
             </div>
         </div>
     );
