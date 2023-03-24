@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import DesignerToolContainer from './components/DesignerToolContainer';
-import Demo from './pages/Demo.js';
+import Demo from './pages/demo.js';
 import Specs from './pages/Specs';
 import ErrorPage from './pages/ErrorPage';
 
