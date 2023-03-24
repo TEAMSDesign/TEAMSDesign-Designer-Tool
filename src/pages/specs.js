@@ -50,6 +50,7 @@ export default function Specs (props) {
     //         zip.file('../index.css', data);
     // });
     
+    
     function generateZipFile() {
         zip.generateAsync({type:"blob"}).then(function(content) {
             saveAs(content, zipFilename);
