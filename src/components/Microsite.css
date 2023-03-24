@@ -191,8 +191,8 @@ header {
       height: 42px;
       display: block;
       padding: 0;
-      color: var(--bg-color-primary-button);
-      background-color: var(--color-primary-button);
+      color: var(--color-secondary-button);
+      background-color: var(--bg-color-secondary-button);
       border: none;
       padding: 9px;
       margin-top: 8px;
@@ -760,6 +760,9 @@ footer {
     .horizontal-card {
         flex-direction: column-reverse;
         margin-bottom: var(--body-section-margin-sm);
+        margin-left: var(--body-padding-sm);
+        margin-right: var(--body-padding-sm);
+        width: calc(100% - var(--body-padding-sm) - var(--body-padding-sm));
     }
     .horizontal-card__image-container {
         width: 100%;
@@ -836,6 +839,7 @@ footer {
     }
     .grid-buttons {
         margin-bottom: var(--body-section-margin-sm);
+        margin-right: var(--body-padding-sm);
     }
     .grid-buttons__text h3 {
         text-align: left;
@@ -862,6 +866,8 @@ footer {
     }
     .form__buttons {
         margin-left: 0;
+        display: flex;
+        justify-content: space-between;
     }
     .form__buttons button {
         margin-left: 0;
@@ -875,4 +881,15 @@ footer {
   
   /* Mobile */
   @media (max-width: 576px) {
+    h1 {
+        font-size: var(--text-6);
+    }
+
+    .hero {
+        margin-top: 0;
+    }
+
+    .grid-text {
+        flex-direction: column;
+    }
   }
