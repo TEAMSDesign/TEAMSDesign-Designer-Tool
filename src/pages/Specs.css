@@ -10,6 +10,10 @@
     display: none;
 }
 
+#darkModeSpecs {
+    display: none;
+}
+
 .section-title {
     font-size: 36px;
 }
@@ -84,6 +88,10 @@
 
 .code__container code {
     font-size: 14px;
+}
+
+.replaceable-code {
+    font-weight: 600;
 }
 
 .demo-space {
