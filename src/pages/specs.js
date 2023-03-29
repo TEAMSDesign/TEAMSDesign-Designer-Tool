@@ -95,8 +95,10 @@ export default function Specs (props) {
                     <div className="section-child-container code__container">
                         <pre>
                             <code>
-                                --initialFontSize: <span id="dinamicSize">{props.initialFontSize};</span><br />
-                                --initialRatio: <span id="dynamicLightness">{props.factor};</span><br />
+                                <div className="replaceable-code">
+                                    --initialFontSize: <span id="dinamicSize">{props.initialFontSize};</span><br />
+                                    --initialRatio: <span id="dynamicLightness">{props.factor};</span><br />
+                                </div>
                                 <br />
                                 --text-0: calc(var(--baseFontSize) / var(--initialRatio));<br />
                                 --text-1: var(--initialFontSize);<br />
@@ -126,8 +128,10 @@ export default function Specs (props) {
                     <div className="section-child-container code__container">
                         <pre>
                             <code>
-                                --initialLineheight: <span id="dynamicLightness">{props.lineheight};</span><br />
-                                --lineheightIncrement: <span id="dynamicLightness">{props.lineheightIncrement};</span><br />
+                                <div className="replaceable-code">
+                                    --initialLineheight: <span id="dynamicLightness">{props.lineheight};</span><br />
+                                    --lineheightIncrement: <span id="dynamicLightness">{props.lineheightIncrement};</span><br />
+                                </div>
                                 <br />
                                 --space-1: calc(var(--initialLineheight));<br />
                                 --space-2: calc( var(--space-1) * var(--lineheightIncrement));<br />
@@ -250,9 +254,11 @@ export default function Specs (props) {
                             <code>
                                 {/* --baseColor: <span id="dinamicSize">{props.baseColor};</span><br /> */}
                                 --baseColor: hsl(var(--lightscaleHueIncrement), var(--lightscaleSaturationIncrement), var(--lightscaleLightnessIncrement));<br />
-                                --initiallightHue: <span id="dynamicHue">{props.hue};</span><br />
-                                --initiallightSaturation: <span id="dynamicSaturation">{props.saturation};</span><br />
-                                --initiallightLightness: <span id="dynamicLightness">{props.lightness};</span><br />
+                                <div className="replaceable-code">
+                                    --initiallightHue: <span id="dynamicHue">{props.hue};</span><br />
+                                    --initiallightSaturation: <span id="dynamicSaturation">{props.saturation};</span><br />
+                                    --initiallightLightness: <span id="dynamicLightness">{props.lightness};</span><br />
+                                </div>
                                 <br />
                                 --lightscaleHueIncrement: 4;<br />
                                 --lightscaleSaturationIncrement: 0%;<br />
@@ -310,15 +316,17 @@ export default function Specs (props) {
                     <div className="section-child-container code__container">
                         <pre role='img'>
                             <code>
-                                --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
-                                --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
+                                <div className="replaceable-code">
+                                    --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
+                                    --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
+                                </div>
                             </code>
                         </pre>
                     </div>
                 </div>
             </div>
 
-            <div className="section__container">
+            <div id="darkModeSpecs" className="section__container">
                 <h4 className="section-title">Dark Mode</h4>
                 <div className="snippet-section__container">
                     {/* <div className="section-child-container demo-template__container demo-layout__wrapper">
