@@ -13,6 +13,8 @@ function App() {
   useEffect(() => {
   }, []);
 
+  const CloseToolContext = React.createContext();
+
   const [darkMode, setDarkMode] = useState(false);
 
   const handleDarkMode = (event) => {
@@ -147,7 +149,7 @@ function App() {
             }>
           </Route>
 
-          <Route path="*" element={<ErrorPage />}>
+          <Route path="*" element={<ErrorPage toolClosed={toolClosed} setToolClosed={setToolClosed} handleToolClose={handleToolClose} />}>
           </Route>
         </Routes>
         <DesignerToolContainer

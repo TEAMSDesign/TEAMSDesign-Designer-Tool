@@ -1236,7 +1236,7 @@ hr {
 }
 
 /* Smaller than desktop */
-@media ( min-width: 992px ) {
+@media (max-width: 992px ) {
 }
 
 /* Smaller than tablet */
