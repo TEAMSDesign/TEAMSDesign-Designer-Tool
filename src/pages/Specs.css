@@ -84,6 +84,39 @@
     background-color: var(--bg-color-code);
     overflow-x: auto;
     line-height: 24px;
+    position: relative;
+}
+
+.copy-clipboard__button {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    width: 42px;
+    height: 42px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.copy-clipboard__tooltip {
+    position: absolute;
+    right: 56px;
+    top: 13px;
+    width: 70px;
+    height: 30px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding: 2px 9px;
+    background-color: var(--grey-04);
+    /* background-color: gray; */
+    /* opacity: 0.5; */
+    color:  var(--grey-06);
+    border-radius: 8px;
 }
 
 .code__container code {
