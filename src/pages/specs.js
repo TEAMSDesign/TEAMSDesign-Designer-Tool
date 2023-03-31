@@ -64,9 +64,9 @@ export default function Specs (props) {
 
     const handleCopyClipboard = event => {
         var copyCode = `/*  Typography  */\n--initialFontSize: ${props.initialFontSize};\n--initialRatio: ${props.factor};
-        \n\n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
-        \n\n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
-        \n\n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};`
+        \n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
+        \n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
+        \n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};`
         navigator.clipboard.writeText(copyCode);
         setShowCopyMessage(true);
         setTimeout(() => {
