@@ -63,13 +63,15 @@ export default function Specs (props) {
     const [showCopyMessage, setShowCopyMessage] = useState(false);
 
     const handleCopyClipboard = event => {
-        var copyCode = "code to copy\n\nnext line";
-        var copyCode = `/*  Typography  */ \n\n  --initialFontSize: ${props.initialFontSize};`
+        var copyCode = `/*  Typography  */\n--initialFontSize: ${props.initialFontSize};\n--initialRatio: ${props.factor};
+        \n\n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
+        \n\n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
+        \n\n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};`
         navigator.clipboard.writeText(copyCode);
         setShowCopyMessage(true);
         setTimeout(() => {
             setShowCopyMessage(false);
-        }, 1500);
+        }, 1000);
     }
 
     return (

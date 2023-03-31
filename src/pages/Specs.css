@@ -113,10 +113,10 @@
     align-items: center; */
     padding: 2px 9px;
     background-color: var(--grey-04);
-    /* background-color: gray; */
-    /* opacity: 0.5; */
-    color:  var(--grey-06);
+    opacity: 0.5;
+    color:  var(--grey-09);
     border-radius: 8px;
+    font-size: 16px;
 }
 
 .code__container code {
