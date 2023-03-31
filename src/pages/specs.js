@@ -1,9 +1,12 @@
 import JSZip from "jszip";
-import React from "react";
+import React, { useState } from "react";
 import { saveAs } from 'file-saver';
 import JSZipUtils from "jszip-utils";
 import './Specs.css'
 // import { useState } from "react";
+
+import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
+import { display } from "@mui/system";
 
 export default function Specs (props) {
 
@@ -55,6 +58,20 @@ export default function Specs (props) {
         zip.generateAsync({type:"blob"}).then(function(content) {
             saveAs(content, zipFilename);
         });
+    }
+
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
+
+    const handleCopyClipboard = event => {
+        var copyCode = `/*  Typography  */\n--initialFontSize: ${props.initialFontSize};\n--initialRatio: ${props.factor};
+        \n\n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
+        \n\n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
+        \n\n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};`
+        navigator.clipboard.writeText(copyCode);
+        setShowCopyMessage(true);
+        setTimeout(() => {
+            setShowCopyMessage(false);
+        }, 1000);
     }
 
     return (
@@ -325,6 +342,60 @@ export default function Specs (props) {
                     </div>
                 </div>
             </div>
+            
+            <div className="section__container">
+                <h4 className="section-title">Material Icons</h4>
+                <div className="snippet-section__container">
+                    <div className="section-child-container demo-template__container demo-layout__wrapper">
+                        <OfflineBoltOutlinedIcon />
+                    </div>
+                    <div className="section-child-container code__container">
+                        <pre role='img'>
+                            <code>
+                                <i class="material-icons">offline_bolt</i>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <div className="section__container">
+                <h4 className="section-title">Custom File</h4>
+                <div className="snippet-section__container">
+                    {/* <div className="section-child-container demo-template__container demo-layout__wrapper">
+                        <div className="demo-layout-square"></div>
+                        <div className="demo-layout-rect"></div>
+                    </div> */}
+                    <div className="section-child-container code__container">
+                        <div>
+                            <button className="copy-clipboard__button" onClick={handleCopyClipboard}>
+                                <span class="material-symbols-outlined copy-clipboard">content_copy</span>
+                            </button>
+                            <div className="copy-clipboard__tooltip" style={{display: showCopyMessage ? `block` : `none`}}>Copied</div>
+                        </div>
+                        <pre role='img'>
+                            <code>
+                                /*  Typography  */<br />
+                                --initialFontSize: <span id="dinamicSize">{props.initialFontSize};</span><br />
+                                --initialRatio: <span id="dynamicLightness">{props.factor};</span><br />
+                                <br />
+                                /*  Spacing  */<br />
+                                --initialLineheight: <span id="dynamicLightness">{props.lineheight};</span><br />
+                                --lineheightIncrement: <span id="dynamicLightness">{props.lineheightIncrement};</span><br />
+                                <br />
+                                /*  Color  */<br />
+                                --initiallightHue: <span id="dynamicHue">{props.hue};</span><br />
+                                --initiallightSaturation: <span id="dynamicSaturation">{props.saturation};</span><br />
+                                --initiallightLightness: <span id="dynamicLightness">{props.lightness};</span><br />
+                                <br />  
+                                /*  Layout  */<br />
+                                --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
+                                --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
 
             <div id="darkModeSpecs" className="section__container">
                 <h4 className="section-title">Dark Mode</h4>
@@ -336,8 +407,6 @@ export default function Specs (props) {
                     <div className="section-child-container code__container">
                         <pre role='img'>
                             <code>
-                                --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
-                                --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
                             </code>
                         </pre>
                     </div>
