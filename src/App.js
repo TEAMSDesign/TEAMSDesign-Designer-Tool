@@ -10,8 +10,9 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 
 function App() {
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, [
+    // code here
+  ]);
 
   const CloseToolContext = React.createContext();
 
