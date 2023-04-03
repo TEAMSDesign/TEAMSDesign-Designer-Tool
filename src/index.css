@@ -356,6 +356,7 @@
     --tool-toggle-button-color: var(--td-grey-06);
     --tool-button-color: var(--td-blue);
     --tool-button-bg-color: var(--tool-bg-color-body);
+    --tool-icon-button-code-color: var(var(--light-08));
     
 
     /*______  Input Range Slider Values  ______*/
@@ -468,6 +469,7 @@
     --tool-toggle-button-color: var(--td-grey-06);
     --tool-button-color: var(--td-blue);
     --tool-button-bg-color: var(--tool-bg-color-body);
+    --tool-icon-button-code-color: var(var(--light-01));
 
     --blend-mode: screen;
     --display-light: none;
