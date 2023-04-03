@@ -5,7 +5,8 @@ import JSZipUtils from "jszip-utils";
 import './Specs.css'
 // import { useState } from "react";
 
-import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
+// import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
+import { CheckCircleOutline, HomeOutlined, OpenInNewOutlined } from "@mui/icons-material";
 import { display } from "@mui/system";
 
 export default function Specs (props) {
@@ -347,12 +348,19 @@ export default function Specs (props) {
                 <h4 className="section-title">Material Icons</h4>
                 <div className="snippet-section__container">
                     <div className="section-child-container demo-template__container demo-layout__wrapper">
-                        <OfflineBoltOutlinedIcon />
+                        <CheckCircleOutline className="material-icon-specs" />
+                        <HomeOutlined className="material-icon-specs" />
                     </div>
                     <div className="section-child-container code__container">
+                        <div>
+                            <a className="open-new__button" href="https://fonts.google.com/icons?icon.platform=web&icon.set=Material+Symbols" target="blank">
+                                <OpenInNewOutlined />
+                            </a>
+                        </div>
                         <pre role='img'>
                             <code>
-                                <i class="material-icons">offline_bolt</i>
+                                &lt;i class="material-icons"&gt;check_circle&lt;/i&gt;<br />
+                                &lt;i class="material-icons"&gt;home&lt;/i&gt;
                             </code>
                         </pre>
                     </div>

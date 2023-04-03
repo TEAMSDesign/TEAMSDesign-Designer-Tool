@@ -87,19 +87,25 @@
     position: relative;
 }
 
-.copy-clipboard__button {
+.copy-clipboard__button,
+.open-new__button {
     position: absolute;
     right: 6px;
     top: 8px;
     width: 42px;
     height: 42px;
     background-color: transparent;
-    color: black;
+    color:  var(--tool-icon-button-code-color);
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+}
+
+.open-new__button:hover {
+    background-color: var(--hover-bg-color-primary-button);
+    color:  var(--hover-color-primary-button);
 }
 
 .copy-clipboard__tooltip {
@@ -339,6 +345,10 @@
     cursor: pointer;
     margin-bottom: 0;
     margin-right: 15px;
+}
+
+.material-icon-specs {
+    font-size: 50px !important;
 }
 
 @media ( max-width: 992px ) {
