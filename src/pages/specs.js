@@ -67,13 +67,79 @@ export default function Specs (props) {
         var copyCode = `/*  Typography  */\n--initialFontSize: ${props.initialFontSize};\n--initialRatio: ${props.factor};
         \n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
         \n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
-        \n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};`
+        \n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};
+        \n/*  Default Light Mode  */\n--font-sans-serif: ${props.fontFamily}, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";`
         navigator.clipboard.writeText(copyCode);
         setShowCopyMessage(true);
         setTimeout(() => {
             setShowCopyMessage(false);
         }, 1000);
     }
+
+    const fontGotham = 
+`@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Book.otf');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gotham';
+    src: url('./fonts/Gotham-Black.otf');
+    font-weight: 900;
+    font-style: normal;
+  }`;
+
+    const fontPangea = 
+`@font-face {
+    font-family: 'Pangea';
+    src: url('./fonts/Pangea-Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('./fonts/Pangea-Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('./fonts/Pangea-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('./fonts/Pangea-Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}  
+
+@font-face {
+    font-family: 'Pangea';
+    src: url('./fonts/Pangea-SemiBold.otf');
+    font-weight: 600;
+    font-style: normal;
+}`;
 
     return (
         <div className="page-container" style={{width: props.toolClosed ? `100vw` : `calc(100vw - 320px)`}}>
@@ -347,7 +413,7 @@ export default function Specs (props) {
             <div className="section__container">
                 <h4 className="section-title">Material Icons</h4>
                 <div className="snippet-section__container">
-                    <div className="section-child-container demo-template__container demo-layout__wrapper">
+                    <div className="section-child-container demo-template__container demo-icons__wrapper">
                         <CheckCircleOutline className="material-icon-specs" />
                         <HomeOutlined className="material-icon-specs" />
                     </div>
@@ -361,6 +427,37 @@ export default function Specs (props) {
                             <code>
                                 &lt;i class="material-icons"&gt;check_circle&lt;/i&gt;<br />
                                 &lt;i class="material-icons"&gt;home&lt;/i&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="section__container">
+                <h4 className="section-title">Fonts</h4>
+                <div className="snippet-section__container">
+                    <div className="section-child-container demo-template__container demo-fonts__wrapper">
+                        <h5 id="demo-fonts--bold">Quick brown fox jumps over the lazy dog</h5>
+                        <h5 id="demo-fonts--regular">Quick brown fox jumps over the lazy dog</h5>
+                        <h5 id="demo-fonts--light">Quick brown fox jumps over the lazy dog</h5>
+                        <h5 id="demo-fonts--black" style={{display: props.fontFamily === 'Pangea' ? 'none' : 'block'}}>Quick brown fox jumps over the lazy dog</h5>
+                        <h5 id="demo-fonts--medium" style={{display: props.fontFamily === 'Gotham' ? 'none' : 'block'}}>Quick brown fox jumps over the lazy dog</h5>
+                        <h5 id="demo-fonts--semi-bold" style={{display: props.fontFamily === 'Gotham' ? 'none' : 'block'}}>Quick brown fox jumps over the lazy dog</h5>
+                        <h5>0123456789</h5>
+                    </div>
+                    <div className="section-child-container code__container">
+                        <pre role='img'>
+                            <code>
+                                --font-sans-serif: {props.fontFamily}, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; <br /><br />
+                                {(() => { 
+                                    if (props.fontFamily === 'Gotham') {
+                                        return fontGotham;
+                                    } else if (props.fontFamily === 'Pangea') {
+                                        return fontPangea;
+                                    } else {
+                                        return fontGotham;
+                                    }
+                                })()}
                             </code>
                         </pre>
                     </div>
@@ -399,6 +496,9 @@ export default function Specs (props) {
                                 /*  Layout  */<br />
                                 --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
                                 --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
+                                <br />
+                                /*  Default Light Mode  */<br />
+                                --font-sans-serif: {props.fontFamily}, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
                             </code>
                         </pre>
                     </div>

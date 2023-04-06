@@ -300,7 +300,8 @@
     background-color: var(--grey-10);
 }
 
-.demo-layout__wrapper {
+.demo-layout__wrapper,
+.demo-icons__wrapper  {
     display: flex;
     flex-direction: row;
     align-items: baseline;
@@ -323,6 +324,30 @@
 .demo-layout-rect {
     width: 200px;
     height: 40px;
+}
+
+#demo-fonts--bold {
+    font-weight: bold;
+}
+
+#demo-fonts--regular {
+    font-weight: 400;
+}
+
+#demo-fonts--light {
+    font-weight: 300;
+}
+
+#demo-fonts--black {
+    font-weight: 900;
+}
+
+#demo-fonts--menium {
+    font-weight: 500;
+}
+
+#demo-fonts--semi-bold {
+    font-weight: 600;
 }
 
 .code-remove__container {

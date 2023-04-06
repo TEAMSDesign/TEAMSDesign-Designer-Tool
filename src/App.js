@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import DesignerToolContainer from './components/DesignerToolContainer';
-import Demo from './pages/demo.js';
-import Specs from './pages/specs.js';
+import Demo from './pages/Demo.js';
+import Specs from './pages/Specs.js';
 import ErrorPage from './pages/ErrorPage.js';
 
 import * as React from "react";
@@ -126,6 +126,14 @@ function App() {
     document.getElementById('settingsDrawer').style.padding = '0 24px 36px 24px';
   }
 
+  // Fonts
+  const [fontFamily, setFontFamily] = useState('Gotham');
+
+  const handleFontFamily = (event) => {
+    setFontFamily(event.target.value);
+    document.documentElement.style.setProperty('--font-sans-serif', event.target.value);
+  }
+
   return (
     <div className="App app-container">
       <Router>
@@ -146,7 +154,8 @@ function App() {
               lightness={lightness + '%'}
               borderRadius={borderRadius + 'px'}
               border={border + 'px'}
-              toolClosed={toolClosed} />
+              toolClosed={toolClosed}
+              fontFamily={fontFamily} />
             }>
           </Route>
 
@@ -165,7 +174,8 @@ function App() {
           handleLightness={handleLightness} lightness={lightness}
           handleBorderRadius={handleBorderRadius} borderRadius={borderRadius}
           handleBorder={handleBorder} border={border}
-          handleToolClose={handleToolClose.bind(this)} />
+          handleToolClose={handleToolClose.bind(this)}
+          handleFontFamily={handleFontFamily} fontFamily={fontFamily} />
       </Router>
       <button id='settingsDrawerOpen' className="settings-open-button" onClick={handleToolOpen}>
           <span class="material-symbols-outlined">arrow_back</span>

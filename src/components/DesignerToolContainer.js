@@ -171,11 +171,23 @@ export default function DesignerToolContainer(props) {
 
                 <div>
                     <label className="settings-label">Border</label>
-                    <input name='border' min='0' max='3'type='range' defaultValue="1" step="0.1" onChange={props.handleBorder} />
+                    <input name='border' min='0' max='3'type='range' defaultValue="1" step="0.1" onChange={props.handleBorder}/>
                     <div className="settings-value-row">
                         <p className="settings-value">{props.border}</p>
                         <p className="settings-value">px</p>
                     </div>
+                </div>
+            </div>
+
+            <div className="settings-section">
+                <h5 className="settings-subtitle">Fonts</h5>
+                <div>
+                    <label className="settings-label">Font Family</label>
+                    <select name="variables" id="variables" className="variables-select" onChange={props.handleFontFamily}>
+                        <option value="Gotham">Gotham</option>
+                        <option value="Pangea">Pangea</option>
+                    </select>
+                    {/* <p>{props.fontFamily}</p> */}
                 </div>
             </div>
             
@@ -185,11 +197,11 @@ export default function DesignerToolContainer(props) {
                 <div>
                     <label className="settings-label" for="variables">Variable</label>
                     <select name="variables" id="variables" className="variables-select">
-                        <option value="volvo">none</option>
-                        <option value="volvo">--bg-color-primary-button</option>
-                        <option value="saab">--border-color-primary-button</option>
-                        <option value="mercedes">--border-radius-primary-button</option>
-                        <option value="audi">--padding-secondary-button</option>
+                        <option value="none">none</option>
+                        <option value="">--bg-color-primary-button</option>
+                        <option value="">--border-color-primary-button</option>
+                        <option value="">--border-radius-primary-button</option>
+                        <option value="">--padding-secondary-button</option>
                     </select>
                     <label className="settings-label" for="variables">Value</label><br />
                     <div className="custom-variables__input-container">
