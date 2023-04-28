@@ -131,6 +131,8 @@
     --grey-10: #000;
 
     /*______  Layout  ______*/
+    --screenWidth: 1000px;
+    --screenHeight: 600px;
     --initialBorderRadius: 0px;
     --initialBorder: 1px;
 

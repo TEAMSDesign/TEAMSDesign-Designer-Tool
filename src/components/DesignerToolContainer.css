@@ -98,7 +98,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 160px;
+    width: 236px;
     height: 42px;
     background-color: var(--tool-bg-color-code);
     border-radius: 10px;
@@ -195,11 +195,24 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+#settingsHeight {
+  margin-right: 5px;
 }
 
 .settings-value {
     font-size: 14px;
     font-weight: 300;
+}
+
+#screenSizeSection .settings-label {
+  margin-bottom: 24px;
+}
+
+#screenSizeSection {
+  margin-bottom: 12px;
 }
 
 input[type="range"] {

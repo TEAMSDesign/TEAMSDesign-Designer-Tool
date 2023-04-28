@@ -17,7 +17,19 @@ export default function DesignerToolContainer(props) {
 
       let activeStyle = {
         color: "var(--tool-font-color-button)",
+        backgroundColor: "var(--tool-bg-color-body)"
+      }
+
+      let InputNumStyle = {
+        borderWidth: "1.5px",
+        borderStyle: "solid",
+        borderColor: "var(--tool-font-color-button)",
         backgroundColor: "var(--tool-bg-color-body)",
+        height: "42px",
+        width: "180px",
+        borderRadius: "8px",
+        fontSize: "14px",
+        color: "var(--tool-font-color-secondary)"
       }
 
       const [showHex, setShowHex] = useState(false);
@@ -49,12 +61,9 @@ export default function DesignerToolContainer(props) {
             </div>
             <nav className="settings-nav-section">
                 <div className="settings-nav-toggle-wrapper">
-                    <NavLink to="/" className="nav-toggle" style={({ isActive }) =>
-                        isActive ? activeStyle : undefined }>
-                    Demo</NavLink>
-                    <NavLink to="/specs" className="nav-toggle" style={({ isActive }) =>
-                        isActive ? activeStyle : undefined }>
-                    Specs</NavLink>
+                    <NavLink id="webNavLink" to="/" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined } onClick={props.handleShowScreenSize}>Web</NavLink>
+                    <NavLink to="/appDemo" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined }>Native</NavLink>
+                    <NavLink to="/specs" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined }>Specs</NavLink>
                 </div>
             </nav>
             {/* <h4 className="settings-title">Customization</h4> */}
@@ -160,6 +169,20 @@ export default function DesignerToolContainer(props) {
 
             <div className="settings-section">
                 <h5 className="settings-subtitle">Layout</h5>
+                <div id="screenSizeSection">
+                    <label className="settings-label">Screen Size</label>
+                    <div className="settings-value-row">
+                        <p className="settings-value">Width</p>
+                        <input type="number" min='100' max='5000' defaultValue="1000" style={ InputNumStyle } onChange={props.handleScreenWidth} />
+                        <p className="settings-value">px</p>
+                    </div>
+                    <div className="settings-value-row">
+                        <p className="settings-value">Height</p>
+                        <input id="settingsHeight" type="number" min='100' max='5001' defaultValue="600" style={ InputNumStyle } onChange={props.handleScreenHeight} />
+                        <p className="settings-value">px</p>
+                    </div>
+                </div>
+
                 <div>
                     <label className="settings-label">Border Radius</label>
                     <input name='borderRadius' min='0' max='50'type='range' defaultValue="0" step="0.01" onChange={props.handleBorderRadius} />

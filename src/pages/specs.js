@@ -67,7 +67,7 @@ export default function Specs (props) {
         var copyCode = `/*  Typography  */\n--initialFontSize: ${props.initialFontSize};\n--initialRatio: ${props.factor};
         \n/*  Spacing  */\n--initialLineheight: ${props.lineheight};\n--lineheightIncrement: ${props.lineheightIncrement};
         \n/*  Color  */\n--initiallightHue: ${props.hue};\n--initiallightSaturation: ${props.saturation};\n--initiallightLightness: ${props.lightness};
-        \n/*  Layout  */\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};
+        \n/*  Layout  */\n--screenWidth: ${props.screenWidth};\n--screenHeight: ${props.screenHeight};\n--initialBorderRadius: ${props.borderRadius};\n--initialBorder: ${props.border};
         \n/*  Default Light Mode  */\n--font-sans-serif: ${props.fontFamily}, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";`
         navigator.clipboard.writeText(copyCode);
         setShowCopyMessage(true);
@@ -401,6 +401,8 @@ export default function Specs (props) {
                         <pre role='img'>
                             <code>
                                 <div className="replaceable-code">
+                                    --screenWidth: <span id="dynamicLightness">{props.screenWidth};</span><br />
+                                    --screenHeight: <span id="dynamicLightness">{props.screenHeight};</span><br />
                                     --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
                                     --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
                                 </div>
@@ -494,6 +496,8 @@ export default function Specs (props) {
                                 --initiallightLightness: <span id="dynamicLightness">{props.lightness};</span><br />
                                 <br />  
                                 /*  Layout  */<br />
+                                --screenWidth: <span id="dynamicLightness">{props.screenWidth};</span><br />
+                                --screenHeight: <span id="dynamicLightness">{props.screenHeight};</span><br />
                                 --initialBorderRadius: <span id="dynamicLightness">{props.borderRadius};</span><br />
                                 --initialBorder: <span id="dynamicLightness">{props.border};</span><br />
                                 <br />

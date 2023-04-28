@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import DesignerToolContainer from './components/DesignerToolContainer';
 import Demo from './pages/Demo.js';
+import AppDemo from './pages/AppDemo.js';
 import Specs from './pages/Specs.js';
 import ErrorPage from './pages/ErrorPage.js';
 
@@ -10,9 +11,25 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 
 function App() {
-  useEffect(() => {}, [
-    // code here
-  ]);
+  const [showScreenSize, setShowScreenSize] = useState(false);
+
+    var webNavLink = document.getElementById('webNavLink');
+    var screenSizeSection = document.getElementById('screenSizeSection');
+
+    function handleShowScreenSize () {
+      // if (webNavLink.classList.contains('active')) {
+      //   screenSizeSection.style.display = 'none';
+      //   setShowScreenSize(true);
+      // } else {
+      //   screenSizeSection.style.display = 'block';
+      //   setShowScreenSize(false);
+      // }
+      screenSizeSection.style.display = 'none';
+      setShowScreenSize(true);
+    }
+
+  useEffect(() => {
+  }, []);
 
   const CloseToolContext = React.createContext();
 
@@ -66,7 +83,6 @@ function App() {
     setBaseColor(event.target.value);
   }
 
-
   // Hue
   const [hue, setHue] = useState('223');
 
@@ -94,8 +110,23 @@ function App() {
     setLightness(event.target.value);
   }
 
+  // Screen Size
+  const [screenWidth, setScreenWidth] = useState('1000');
+
+  function handleScreenWidth (event) {
+    document.documentElement.style.setProperty('--screenWidth', event.target.value + 'px');
+    setScreenWidth(event.target.value);
+  }
+
+  const [screenHeight, setScreenHight] = useState(600);
+
+  function handleScreenHeight (event) {
+    document.documentElement.style.setProperty('--screenHeight', event.target.value + 'px');
+    setScreenHight(event.target.value);
+  }
+
   // Border Radius
-  const [borderRadius, setBorderRadius] = useState('0')
+  const [borderRadius, setBorderRadius] = useState('0');
 
   function handleBorderRadius (event) {
     document.documentElement.style.setProperty('--initialBorderRadius', event.target.value + 'px');
@@ -135,11 +166,16 @@ function App() {
   }
 
   return (
-    <div className="App app-container">
+    <div className="app-container">
       <Router>
         <Routes>
           <Route path="/" element={<Demo
               toolClosed={toolClosed} />}>
+          </Route>
+
+          <Route path="/appDemo" element={
+            <AppDemo/>
+          }>
           </Route>
           
           <Route path="/specs" element={
@@ -155,7 +191,9 @@ function App() {
               borderRadius={borderRadius + 'px'}
               border={border + 'px'}
               toolClosed={toolClosed}
-              fontFamily={fontFamily} />
+              fontFamily={fontFamily}
+              screenWidth={screenWidth + 'px'}
+              screenHeight={screenHeight + 'px'} />
             }>
           </Route>
 
@@ -172,6 +210,9 @@ function App() {
           handleHue={handleHue} hue={hue}
           handleSaturation={handleSaturation} saturation={saturation}
           handleLightness={handleLightness} lightness={lightness}
+          handleScreenWidth={handleScreenWidth} screenWidth={screenWidth}
+          handleScreenHeight={handleScreenHeight} screenHeight={screenHeight}
+          handleShowScreenSize={handleShowScreenSize}
           handleBorderRadius={handleBorderRadius} borderRadius={borderRadius}
           handleBorder={handleBorder} border={border}
           handleToolClose={handleToolClose.bind(this)}
