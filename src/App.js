@@ -111,6 +111,19 @@ function App() {
   }
 
   // Screen Size
+  const [customLayout, setCustomLayout] = useState(false);
+  
+  const handleCustomLayout = (event) => {
+    setCustomLayout(event.target.checked);
+    if (customLayout) {
+      document.documentElement.style.setProperty('--screenWidth', '100%');
+      document.documentElement.style.setProperty('--screenHeight', '100vh');
+    } else {
+      document.documentElement.style.setProperty('--screenWidth', screenWidth + 'px');
+      document.documentElement.style.setProperty('--screenHeight', screenHeight + 'px');
+    }
+  }
+
   const [screenWidth, setScreenWidth] = useState('1000');
 
   function handleScreenWidth (event) {
@@ -174,7 +187,11 @@ function App() {
           </Route>
 
           <Route path="/appDemo" element={
-            <AppDemo/>
+            <AppDemo
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+            customLayout={customLayout}
+            />
           }>
           </Route>
           
@@ -210,6 +227,7 @@ function App() {
           handleHue={handleHue} hue={hue}
           handleSaturation={handleSaturation} saturation={saturation}
           handleLightness={handleLightness} lightness={lightness}
+          handleCustomLayout={handleCustomLayout} customLayout={customLayout}
           handleScreenWidth={handleScreenWidth} screenWidth={screenWidth}
           handleScreenHeight={handleScreenHeight} screenHeight={screenHeight}
           handleShowScreenSize={handleShowScreenSize}

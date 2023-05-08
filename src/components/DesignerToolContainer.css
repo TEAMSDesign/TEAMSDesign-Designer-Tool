@@ -215,6 +215,19 @@ body {
   margin-bottom: 12px;
 }
 
+#customLayoutSection {
+  margin-top: 0 !important;
+}
+
+.settings-label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 input[type="range"] {
     width: 100%;
     margin-top: 16px;

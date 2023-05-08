@@ -101,7 +101,7 @@
     --light7L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 6);
     --light8L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 7);
     --light9L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 8);
-    --light-00: hsl(var(--light0H), var(--light0S), var(--light0L));
+    --light-00: var(--light-increment-60);
     --light-01: hsl(var(--light1H), var(--light1S), var(--light1L));
     --light-02: hsl(var(--light2H), var(--light2S), var(--light2L));
     --light-03: hsl(var(--light3H), var(--light3S), var(--light3L));
@@ -131,8 +131,8 @@
     --grey-10: #000;
 
     /*______  Layout  ______*/
-    --screenWidth: 1000px;
-    --screenHeight: 600px;
+    --screenWidth: 100%;
+    --screenHeight: 100vh;
     --initialBorderRadius: 0px;
     --initialBorder: 1px;
 
@@ -162,10 +162,12 @@
 
     --bg-color-primary-button: var(--light-01);
     --bg-color-secondary-button: var(--grey-00);
+    --bg-color-tertiary-button: var(--body-bg-color);
     --border-color-primary-button: var(--light-01);
     --border-color-secondary-button: var(--light-01);
     --color-primary-button: var(--grey-01);
     --color-secondary-button: var(--light-01);
+    --color-tertiary-button: var(--grey-08);
     --font-size-primary-button: var(--text-1);
     --font-size-secondary-button: var(--text-1);
     --border-width-primary-button: var(--border-width);
@@ -174,19 +176,24 @@
     --border-style-secondary-button: var(--border-style);
     --border-radius-primary-button: var(--border-radius);
     --border-radius-secondary-button: var(--border-radius);
+    --border-tertiary-button: none;
     --padding-primary-button:  0 calc(var(--space-1) / 2);
     --padding-secondary-button:  0 calc(var(--space-1) / 2);
     --width-primary-button: 236px; /*tbd*/
     --width-secondary-button: 236px; /*tbd*/
+    --width-tertiary-button: 100%;
     --height-primary-button: calc(var(--space-1) * 3.1);
     --height-secondary-button: calc(var(--space-1) * 3.1);
+    --height-tertiary-button: calc(var(--space-1) * 2);
     --margin-button: calc(var(--space-1) / 2);
     --hover-bg-color-primary-button: var(--light-increment-60);
     --hover-bg-color-secondary-button: var(--light-01);
+    --hover-bg-color-tertiary-button: var(--grey-02);
     --hover-border-color-primary-button: var(--light-03);
     --hover-border-color-secondary-button: var(--light-01);
     --hover-color-primary-button: var(--grey-01);
     --hover-color-secondary-button: var(--grey-00);
+    --hover-color-tertiary-button: var(--grey-08);
     --active-bg-color-primary-button: var(--light-01);
     --active-bg-color-secondary-button: var(--light-00);
     --active-border-color-primary-button: var(--light-01);
@@ -279,6 +286,15 @@
     --input-margin-bottom: calc(var(--space-1) / 2);
     --element-margin: 0 0 calc(var(--space-1) - var(--space-1) / 2);
 
+    --base-icon-size: calc(var(--text-1) * 1.4);
+
+    --dashboard-sm-margin: var(--space-0);
+    --dashboard-md-margin: var(--space-3);
+    --dashboard-lg-margin: var(--space-6);
+    --dashboard-sm-padding: var(--space-0);
+    --dashboard-open-sidebar-width: 254px;
+    --dashboard-close-sidebar-width: 63px;
+
     --hr-margin: var(--space-1) 0;
     --hr-border-top: 1px solid;
     --hr-opacity: 0.25;
@@ -296,6 +312,7 @@
     --padding-header-link: 0 var(--space-1);
     --nav-margin-right-link:  calc(var(--space-1) * 1.5);
     --nav-font-weight-link: 400;
+    --header-children-margin-right: var(--space-0);
 
     --hero-text-max-width: 812px;
     --grid-text-title-max-width: 576px;

@@ -374,7 +374,8 @@ export default function Specs (props) {
                                 --light6L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 5);<br />
                                 --light7L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 6);<br />
                                 --light8L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 7);<br />
-                                --light9L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 8);<br /> 
+                                --light9L: calc(var(--initiallightLightness) - var(--lightscaleLightnessIncrement) * 8);<br />
+                                --light-00: var(--light-increment-60);<br />
                                 --light-01: hsl(var(--light1H), var(--light1S), var(--light1L));<br />
                                 --light-02: hsl(var(--light2H), var(--light2S), var(--light2L));<br />
                                 --light-03: hsl(var(--light3H), var(--light3S), var(--light3L));<br />

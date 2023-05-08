@@ -62,7 +62,7 @@ export default function DesignerToolContainer(props) {
             <nav className="settings-nav-section">
                 <div className="settings-nav-toggle-wrapper">
                     <NavLink id="webNavLink" to="/" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined } onClick={props.handleShowScreenSize}>Web</NavLink>
-                    <NavLink to="/appDemo" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined }>Native</NavLink>
+                    <NavLink to="/appDemo" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined }>App</NavLink>
                     <NavLink to="/specs" className="nav-toggle" style={({ isActive }) => isActive ? activeStyle : undefined }>Specs</NavLink>
                 </div>
             </nav>
@@ -170,16 +170,27 @@ export default function DesignerToolContainer(props) {
             <div className="settings-section">
                 <h5 className="settings-subtitle">Layout</h5>
                 <div id="screenSizeSection">
-                    <label className="settings-label">Screen Size</label>
-                    <div className="settings-value-row">
-                        <p className="settings-value">Width</p>
-                        <input type="number" min='100' max='5000' defaultValue="1000" style={ InputNumStyle } onChange={props.handleScreenWidth} />
-                        <p className="settings-value">px</p>
+                    <div className="settings-label-row">
+                        <label className="settings-label" style={{margin: "0"}}>Screen Size</label>
+                        <div className="settings-section" style={{margin: "0"}}>
+                            <label id="customLayoutSection" className="settings-value" style={{marginTop: 0}}>Custom</label>
+                            <label className="switch">
+                                <input id="customLayoutInput" type='checkbox' name='customLayout' onChange={props.handleCustomLayout}></input>
+                                <span className="slider round"></span>
+                            </label>
+                        </div>
                     </div>
-                    <div className="settings-value-row">
-                        <p className="settings-value">Height</p>
-                        <input id="settingsHeight" type="number" min='100' max='5001' defaultValue="600" style={ InputNumStyle } onChange={props.handleScreenHeight} />
-                        <p className="settings-value">px</p>
+                    <div style={{display: props.customLayout ? "block" : "none"}}>
+                        <div className="settings-value-row">
+                            <p className="settings-value">Width</p>
+                            <input type="number" min='100' max='5000' defaultValue="1000" style={ InputNumStyle } onChange={props.handleScreenWidth} />
+                            <p className="settings-value">px</p>
+                        </div>
+                        <div className="settings-value-row">
+                            <p className="settings-value">Height</p>
+                            <input id="settingsHeight" type="number" min='100' max='5001' defaultValue="600" style={ InputNumStyle } onChange={props.handleScreenHeight} />
+                            <p className="settings-value">px</p>
+                        </div>
                     </div>
                 </div>
 
