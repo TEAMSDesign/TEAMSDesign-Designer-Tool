@@ -10,6 +10,8 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState } from 'react'
 
+// import ImageCard from './ImageCard';
+
 // Tabs
     const openContent = (event, areaContent) => {
     var k, tabContent, tabItem;
@@ -574,6 +576,9 @@ const handleNavMenu = event => {
                     </tr>
                     </table>
                 </div>
+            </div>
+            <div>
+                {/* <ImageCard /> */}
             </div>
 
             <div class="form__conatiner">

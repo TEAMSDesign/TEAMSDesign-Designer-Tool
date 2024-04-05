@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import DesignerToolContainer from './components/DesignerToolContainer';
+import DesignerToolContainer from './components/DesignerToolContainer.tsx';
 import Demo from './pages/demo.js';
 import Specs from './pages/specs.js';
 import ErrorPage from './pages/ErrorPage.js';

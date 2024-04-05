@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 // import '../index.css';
 
-export default function DesignerToolContainer(props) {
+export default function DesignerToolContainer(props: any) {
     useEffect(() => {
       }, []);
 
@@ -22,14 +22,14 @@ export default function DesignerToolContainer(props) {
 
       const [showHex, setShowHex] = useState(false);
 
-      const handleShowHex = event => {
+      const handleShowHex = () => {
         setShowHsl(false);
         setShowHex(true);
       }
 
       const [showHsl, setShowHsl] = useState(true);
 
-      const handleShowHsl = event => {
+      const handleShowHsl = () => {
           setShowHsl(true);
           setShowHex(false);
       }
@@ -44,19 +44,12 @@ export default function DesignerToolContainer(props) {
                 <h4 className="settings-title">Customization</h4>
                 {/* <button className="settings-close-button" onClick={handleToolClose}> */}
                 <button className="settings-close-button" onClick={props.handleToolClose}>
-                    <span class="material-symbols-outlined">close</span>
+                    <span className="material-symbols-outlined">close</span>
                 </button>
             </div>
-            <nav className="settings-nav-section">
-                <div className="settings-nav-toggle-wrapper">
-                    <NavLink to="/" className="nav-toggle" style={({ isActive }) =>
-                        isActive ? activeStyle : undefined }>
-                    Demo</NavLink>
-                    <NavLink to="/specs" className="nav-toggle" style={({ isActive }) =>
-                        isActive ? activeStyle : undefined }>
-                    Specs</NavLink>
-                </div>
-            </nav>
+            <NavLink to="/" className="nav-toggle" style={({ isActive }) =>
+                isActive ? activeStyle : {} }>
+            </NavLink>
             {/* <h4 className="settings-title">Customization</h4> */}
 
             <div className="settings-section darkmode-section">
@@ -183,7 +176,7 @@ export default function DesignerToolContainer(props) {
             <div id="customVariablesSection" className="settings-section">
                 <h5 className="settings-subtitle">Custom Variables</h5>
                 <div>
-                    <label className="settings-label" for="variables">Variable</label>
+                    <label className="settings-label" htmlFor="variables">Variable</label>
                     <select name="variables" id="variables" className="variables-select">
                         <option value="volvo">none</option>
                         <option value="volvo">--bg-color-primary-button</option>
@@ -191,7 +184,7 @@ export default function DesignerToolContainer(props) {
                         <option value="mercedes">--border-radius-primary-button</option>
                         <option value="audi">--padding-secondary-button</option>
                     </select>
-                    <label className="settings-label" for="variables">Value</label><br />
+                    <label className="settings-label" htmlFor="variables">Value</label><br />
                     <div className="custom-variables__input-container">
                         <input className="custom-variables__input" />
                         <button className="variable-button">+</button>

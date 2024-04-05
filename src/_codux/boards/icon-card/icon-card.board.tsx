@@ -6,4 +6,7 @@ export default createBoard({
     name: 'IconCard',
     Board: () => <IconCard />,
     isSnippet: true,
+    environmentProps: {
+windowWidth: 1136
+}
 });
